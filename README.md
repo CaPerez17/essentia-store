@@ -144,6 +144,8 @@ Abre [http://localhost:3000](http://localhost:3000).
 | `WOMPI_EVENTS_SECRET` | Sí | Secret para verificar webhooks |
 | `WOMPI_ENV` | No | `sandbox` \| `production` |
 | `NEXT_PUBLIC_BASE_URL` | Sí | URL pública (ej. `https://essentia.vercel.app`) |
+| `NEXT_PUBLIC_S3_PUBLIC_BASE_URL` | No | Base URL del bucket S3 público (imágenes) |
+| `ADMIN_API_KEY` | No | Clave para admin (header `x-admin-key`) |
 
 ### 5. Checklist producción
 
@@ -162,6 +164,27 @@ Abre [http://localhost:3000](http://localhost:3000).
 | `WOMPI_*` | Opcional en dev (usa mock) |
 | `MOCK_WEBHOOK_SECRET` | Firma para webhooks mock (`x-signature`) |
 | `NEXT_PUBLIC_BASE_URL` | `http://localhost:3000` |
+| `NEXT_PUBLIC_S3_PUBLIC_BASE_URL` | Base URL del bucket S3 (imágenes) |
+| `ADMIN_API_KEY` | Clave para `/admin/products` y API update |
+
+## Importar productos (CSV)
+
+```bash
+npm run import:products
+```
+
+Lee `data/products.csv` y hace upsert por `slug`. Actualiza stock, precio, flags y categorías. La columna `imageKeys` (separada por `;`) reemplaza las imágenes del producto (S3 keys).
+
+**Convención S3:** `products/{brand_slug}/{product_slug}/01.jpg`, `02.jpg`, etc.
+
+## Admin (sin auth)
+
+1. Ir a `/admin/products`
+2. Introducir `ADMIN_API_KEY` (se guarda en sessionStorage)
+3. Editar stock y precio inline
+4. Clic en "Save" por fila
+
+La API `POST /api/admin/products/update` requiere header `x-admin-key` con el valor de `ADMIN_API_KEY`.
 
 ## Scripts
 
@@ -173,6 +196,7 @@ Abre [http://localhost:3000](http://localhost:3000).
 | `npm run migrate:deploy` | Aplicar migraciones (Vercel) |
 | `npm run db:migrate` | Crear migración (desarrollo) |
 | `npm run db:seed` | Seed de productos y news |
+| `npm run import:products` | Importar productos desde CSV |
 | `npm run db:studio` | Prisma Studio (explorar DB) |
 | `npm run news:fetch` | Ingestor de news desde JSON local |
 | `npm run test` | Tests (idempotencia payments/init, webhook APPROVED) |
@@ -189,13 +213,16 @@ Abre [http://localhost:3000](http://localhost:3000).
 | `/api/payments/simulate` | POST | Simular resultado (dev). `orderCode`, `provider`, `providerTxnId`, `status` (APPROVED/DECLINED) |
 | `/api/webhooks/wompi` | POST | Webhook Wompi. Payload real `transaction.updated` o mock con `x-signature` |
 | `/api/webhooks/mercadopago` | POST | Webhook MercadoPago. Header `x-signature` = MOCK_WEBHOOK_SECRET |
+| `/api/admin/products/update` | POST | Actualizar stock/precio. Header `x-admin-key` = ADMIN_API_KEY |
 
 ## Estructura
 
 ```
 src/
 ├── app/
+│   ├── admin/products/  # Admin stock/precio (x-admin-key)
 │   ├── api/
+│   │   ├── admin/products/update/
 │   │   ├── checkout/     # POST con Zod, clientOrderId, stock
 │   │   ├── news/        # GET con filtros
 │   │   ├── payments/    # init, simulate
@@ -222,6 +249,8 @@ src/
 
 ## Prisma: cambios recientes
 
+- `Product.imagesLegacy` (String?) — JSON de URLs legacy; `Product.images` → relación ProductImage
+- `ProductImage` — productId, key (S3), alt, position
 - `Order`: status (CREATED \| PAYMENT_PENDING \| PAID \| CANCELLED \| REFUNDED), paymentProvider, paymentStatusRaw, paidAt
 - `Order.clientOrderId` (String?, unique) — idempotencia checkout
 - `PaymentAttempt` — orderId, provider, providerIntentId, providerTxnId, status, paymentUrl

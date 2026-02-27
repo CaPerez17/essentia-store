@@ -14,6 +14,7 @@
     "db:seed": "npx tsx prisma/seed.ts",
     "db:studio": "prisma studio",
     "news:fetch": "npx tsx scripts/fetchNews.ts",
+    "import:products": "npx tsx scripts/importProducts.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },

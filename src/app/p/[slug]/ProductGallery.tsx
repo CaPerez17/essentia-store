@@ -22,7 +22,7 @@ export function ProductGallery({ images, productName, brand }: ProductGalleryPro
             className="h-full w-full object-cover"
           />
         ) : (
-          <div className="h-full w-full flex items-center justify-center text-[var(--text-muted)]">
+          <div className="h-full w-full flex items-center justify-center bg-[var(--bg)] text-[var(--text-muted)] text-sm">
             {brand}
           </div>
         )}

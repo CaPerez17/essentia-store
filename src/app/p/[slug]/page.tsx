@@ -13,17 +13,13 @@ export default async function ProductPage({
   const { slug } = await params;
   const product = await prisma.product.findUnique({
     where: { slug },
+    include: { images: { orderBy: { position: "asc" } } },
   });
 
   if (!product) notFound();
 
-  const images = (() => {
-    try {
-      return JSON.parse(product.images || "[]") as string[];
-    } catch {
-      return [];
-    }
-  })();
+  const { getProductImageUrls } = await import("@/lib/product-images");
+  const images = getProductImageUrls(product);
 
   const tags = (() => {
     try {

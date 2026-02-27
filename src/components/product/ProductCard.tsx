@@ -4,14 +4,14 @@ import Link from "next/link";
 import { PriceTag } from "@/components/ui/PriceTag";
 import { WishlistButton } from "@/components/ui/WishlistButton";
 import { AddToCartButton } from "@/components/ui/AddToCartButton";
-import type { Product } from "@prisma/client";
+import { getProductFirstImageUrl, type ProductWithImages } from "@/lib/product-images";
 
 interface ProductCardProps {
-  product: Product;
+  product: ProductWithImages;
   showAddToCart?: boolean;
 }
 
-function parseJsonArray(str: string | null): string[] {
+function parseTags(str: string | null): string[] {
   if (!str) return [];
   try {
     const arr = JSON.parse(str) as unknown;
@@ -21,14 +21,9 @@ function parseJsonArray(str: string | null): string[] {
   }
 }
 
-function parseTags(str: string | null): string[] {
-  return parseJsonArray(str);
-}
-
 export function ProductCard({ product, showAddToCart = true }: ProductCardProps) {
-  const images = parseJsonArray(product.images);
+  const imageUrl = getProductFirstImageUrl(product);
   const tags = parseTags(product.tags);
-  const imageUrl = images[0];
 
   const wishlistItem = {
     productId: product.id,
@@ -50,7 +45,7 @@ export function ProductCard({ product, showAddToCart = true }: ProductCardProps)
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
             />
           ) : (
-            <div className="h-full w-full flex items-center justify-center text-[var(--text-muted)] text-sm">
+            <div className="h-full w-full flex items-center justify-center bg-[var(--bg)] text-[var(--text-muted)] text-sm">
               {product.brand}
             </div>
           )}

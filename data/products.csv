@@ -1,0 +1,4 @@
+slug,name,brand,description,price,compareAt,stock,family,occasion,intensity,gender,tags,featured,isNew,onSale,imageKeys
+tom-ford-oud-wood,Oud Wood,Tom Ford,"Rich woody fragrance with oud and sandalwood.",245,280,12,woody,evening,intense,unisex,"oud,woody,sandalwood,luxury",true,false,true,products/tom-ford/oud-wood/01.jpg;products/tom-ford/oud-wood/02.jpg
+creed-aventus,Aventus,Creed,"Legendary pineapple and birch fragrance.",395,,8,fresh,office,moderate,masculine,"pineapple,smoky,citrus,iconic",true,false,false,products/creed/aventus/01.jpg
+dior-sauvage-edt,Sauvage Eau de Toilette,Dior,"Fresh spicy bergamot and ambroxan.",98,115,25,fresh,casual,moderate,masculine,"fresh,spicy,bergamot,popular",true,false,true,products/dior/sauvage-edt/01.jpg

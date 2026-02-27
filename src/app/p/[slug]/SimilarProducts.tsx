@@ -21,6 +21,7 @@ export async function SimilarProducts({
       ].filter(Boolean),
     },
     take: 4,
+    include: { images: { orderBy: { position: "asc" } } },
   });
 
   if (similar.length === 0) return null;

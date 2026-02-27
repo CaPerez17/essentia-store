@@ -61,6 +61,7 @@ export async function GET(request: Request) {
         orderBy,
         skip,
         take: limit,
+        include: { images: { orderBy: { position: "asc" } } },
       }),
       prisma.product.count({ where }),
     ]);

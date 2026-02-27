@@ -3,21 +3,14 @@
 import { PriceTag } from "@/components/ui/PriceTag";
 import { AddToCartButton } from "@/components/ui/AddToCartButton";
 import { WishlistButton } from "@/components/ui/WishlistButton";
-import type { Product } from "@prisma/client";
+import { getProductFirstImageUrl, type ProductWithImages } from "@/lib/product-images";
 
 interface ProductActionsProps {
-  product: Product;
+  product: ProductWithImages;
 }
 
 export function ProductActions({ product }: ProductActionsProps) {
-  const images = (() => {
-    try {
-      const arr = JSON.parse(product.images || "[]") as string[];
-      return arr[0] ?? null;
-    } catch {
-      return null;
-    }
-  })();
+  const imageUrl = getProductFirstImageUrl(product);
 
   const wishlistItem = {
     productId: product.id,
@@ -25,7 +18,7 @@ export function ProductActions({ product }: ProductActionsProps) {
     name: product.name,
     brand: product.brand,
     price: product.price,
-    image: images ?? undefined,
+    image: imageUrl ?? undefined,
   };
 
   return (

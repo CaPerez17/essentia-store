@@ -2,17 +2,10 @@
 
 import { useState } from "react";
 import { useCartStore, type CartItem } from "@/stores/cart-store";
+import { getProductFirstImageUrl, type ProductWithImages } from "@/lib/product-images";
 
 interface AddToCartButtonProps {
-  product: {
-    id: string;
-    slug: string;
-    name: string;
-    brand: string;
-    price: number;
-    stock: number;
-    images: string;
-  };
+  product: ProductWithImages;
   quantity?: number;
   variant?: "default" | "compact";
   className?: string;
@@ -27,14 +20,7 @@ export function AddToCartButton({
   const addItem = useCartStore((s) => s.addItem);
   const [added, setAdded] = useState(false);
 
-  const images = (() => {
-    try {
-      const arr = JSON.parse(product.images || "[]") as string[];
-      return arr[0] ?? null;
-    } catch {
-      return null;
-    }
-  })();
+  const imageUrl = getProductFirstImageUrl(product);
 
   const handleClick = () => {
     if (product.stock < 1) return;
@@ -44,7 +30,7 @@ export function AddToCartButton({
       name: product.name,
       brand: product.brand,
       price: product.price,
-      image: images ?? undefined,
+      image: imageUrl ?? undefined,
     };
     addItem({ ...item, quantity });
     setAdded(true);
