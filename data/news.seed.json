@@ -1,0 +1,102 @@
+[
+  {
+    "title": "Tom Ford lanza Oud Wood Intense",
+    "brand": "Tom Ford",
+    "category": "designer",
+    "sourceName": "Fragrantica",
+    "sourceUrl": "https://www.fragrantica.com",
+    "publishedAt": "2025-02-20T10:00:00Z",
+    "imageUrl": null,
+    "excerpt": "La nueva intensificación del clásico Oud Wood llega con notas más profundas de oud y sándalo."
+  },
+  {
+    "title": "Nishane Hacivat X: edición limitada",
+    "brand": "Nishane",
+    "category": "niche",
+    "sourceName": "Basenotes",
+    "sourceUrl": "https://www.basenotes.net",
+    "publishedAt": "2025-02-18T14:30:00Z",
+    "imageUrl": null,
+    "excerpt": "La casa turca presenta una versión amplificada de su bestseller con piña y vetiver."
+  },
+  {
+    "title": "Ajmal perfumes de Oriente Medio",
+    "brand": "Ajmal",
+    "category": "arab",
+    "sourceName": "Parfumo",
+    "sourceUrl": "https://www.parfumo.com",
+    "publishedAt": "2025-02-15T09:00:00Z",
+    "imageUrl": null,
+    "excerpt": "Nueva colección de attars inspirados en las rutas del incienso."
+  },
+  {
+    "title": "Diptyque Orphéon: homenaje al cabaret",
+    "brand": "Diptyque",
+    "category": "niche",
+    "sourceName": "Fragrantica",
+    "sourceUrl": "https://www.fragrantica.com",
+    "publishedAt": "2025-02-12T11:00:00Z",
+    "imageUrl": null,
+    "excerpt": "Un perfume que evoca el París bohemio de los años 60."
+  },
+  {
+    "title": "Chanel N°5 L'Eau: reformulación 2025",
+    "brand": "Chanel",
+    "category": "designer",
+    "sourceName": "Basenotes",
+    "sourceUrl": "https://www.basenotes.net",
+    "publishedAt": "2025-02-10T16:00:00Z",
+    "imageUrl": null,
+    "excerpt": "La versión ligera del icono recibe un ajuste más verde y transparente."
+  },
+  {
+    "title": "Amouage Interlude Black Iris",
+    "brand": "Amouage",
+    "category": "arab",
+    "sourceName": "Parfumo",
+    "sourceUrl": "https://www.parfumo.com",
+    "publishedAt": "2025-02-08T08:00:00Z",
+    "imageUrl": null,
+    "excerpt": "La línea Interlude explora el iris en una interpretación oscura y resinosa."
+  },
+  {
+    "title": "Byredo Sundazed: verano eterno",
+    "brand": "Byredo",
+    "category": "niche",
+    "sourceName": "Fragrantica",
+    "sourceUrl": "https://www.fragrantica.com",
+    "publishedAt": "2025-02-05T12:00:00Z",
+    "imageUrl": null,
+    "excerpt": "Notas de algodón de azúcar y limón en un perfume solar y nostálgico."
+  },
+  {
+    "title": "Dior Sauvage Elixir Parfum",
+    "brand": "Dior",
+    "category": "designer",
+    "sourceName": "Basenotes",
+    "sourceUrl": "https://www.basenotes.net",
+    "publishedAt": "2025-02-01T10:30:00Z",
+    "imageUrl": null,
+    "excerpt": "La concentración más intensa de Sauvage con lavanda y regaliz."
+  },
+  {
+    "title": "Xerjoff Naxos: reedición en edición especial",
+    "brand": "Xerjoff",
+    "category": "niche",
+    "sourceName": "Parfumo",
+    "sourceUrl": "https://www.parfumo.com",
+    "publishedAt": "2025-01-28T09:00:00Z",
+    "imageUrl": null,
+    "excerpt": "El clásico mediterráneo vuelve en frasco de cristal tallado limitado."
+  },
+  {
+    "title": "Rasasi Hawas: éxito árabe en Occidente",
+    "brand": "Rasasi",
+    "category": "arab",
+    "sourceName": "Fragrantica",
+    "sourceUrl": "https://www.fragrantica.com",
+    "publishedAt": "2025-01-25T14:00:00Z",
+    "imageUrl": null,
+    "excerpt": "El ambroxán árabe conquista mercados europeos con su proyección legendaria."
+  }
+]

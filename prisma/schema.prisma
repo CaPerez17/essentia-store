@@ -1,0 +1,147 @@
+// Prisma schema for Essentia Perfume E-commerce
+// Vercel + Neon (PostgreSQL)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_DIRECT_URL")
+}
+// For Neon: DATABASE_URL = pooled, DATABASE_DIRECT_URL = direct (migrations)
+// For local Postgres: set both to the same connection string
+
+// --- Product catalog ---
+model Product {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  brand       String
+  description String?
+  price       Float
+  compareAt   Float?
+  stock       Int      @default(0)
+  images      String
+  family      String?
+  occasion    String?
+  intensity   String?
+  gender      String?
+  tags        String
+  featured    Boolean  @default(false)
+  isNew       Boolean  @default(false)
+  onSale      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  orderItems         OrderItem[]
+  stockReservations  StockReservation[]
+
+  @@index([brand])
+  @@index([family])
+  @@index([occasion])
+  @@index([intensity])
+  @@index([gender])
+  @@index([price])
+  @@index([createdAt])
+}
+
+model Order {
+  id               String      @id @default(cuid())
+  code             String      @unique
+  clientOrderId    String?     @unique
+  email            String
+  phone            String?
+  shippingName     String
+  shippingAddr     String
+  shippingCity     String
+  shippingZip      String?
+  shippingNotes    String?
+  subtotal         Float
+  shippingCost     Float       @default(0)
+  total            Float
+  status           String      @default("CREATED")
+  paymentProvider  String?
+  paymentStatusRaw String?
+  paidAt           DateTime?
+  createdAt        DateTime    @default(now())
+
+  items              OrderItem[]
+  paymentAttempts    PaymentAttempt[]
+  stockReservations  StockReservation[]
+
+  @@index([status])
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  productId String
+  quantity  Int
+  price     Float
+
+  order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+
+  @@index([orderId])
+  @@index([productId])
+}
+
+model PaymentAttempt {
+  id               String    @id @default(cuid())
+  orderId          String
+  provider         String
+  providerIntentId String?
+  providerTxnId    String?
+  status           String
+  errorMessage     String?
+  paymentUrl       String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+  @@index([provider, providerIntentId])
+}
+
+model StockReservation {
+  id        String   @id @default(cuid())
+  orderId   String
+  productId String
+  qty       Int
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+  @@index([expiresAt])
+}
+
+model NewsItem {
+  id          String    @id @default(cuid())
+  title       String
+  brand       String?
+  category    String?
+  sourceName  String?
+  sourceUrl   String?
+  publishedAt DateTime
+  imageUrl    String?
+  excerpt     String?
+  createdAt   DateTime  @default(now())
+
+  @@index([publishedAt])
+  @@index([category])
+}
+
+model WishlistShare {
+  id         String   @id @default(cuid())
+  token      String   @unique
+  productIds String
+  createdAt  DateTime @default(now())
+
+  @@index([token])
+}
