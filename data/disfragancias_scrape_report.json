@@ -1,0 +1,16 @@
+{
+  "products_found": 1250,
+  "duplicates_removed": 0,
+  "unique_products": 1250,
+  "missing_fields": {
+    "name": 0,
+    "brand": 0,
+    "price": 0,
+    "description": 24,
+    "image_url": 0,
+    "category": 217
+  },
+  "categories_detected": [
+    "decants"
+  ]
+}
