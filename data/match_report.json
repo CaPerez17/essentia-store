@@ -1,0 +1,8 @@
+{
+  "local_products": 127,
+  "matched": 109,
+  "unmatched": 18,
+  "below_threshold": 5,
+  "confidence_threshold": 0.4,
+  "disfragancias_catalog_size": 1250
+}

@@ -16,6 +16,9 @@
     "news:fetch": "npx tsx scripts/fetchNews.ts",
     "import:products": "npx tsx scripts/importProducts.ts",
     "extract:disfragancias": "npx tsx scripts/extractDisfragancias.ts",
+    "catalog:local": "python3 scripts/buildLocalAssetsCatalog.py",
+    "catalog:match": "npx tsx scripts/matchLocalWithDisfragancias.ts",
+    "catalog:candidate": "npx tsx scripts/buildEssentiaCandidateCatalog.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },

@@ -177,6 +177,54 @@ Lee `data/products.csv` y hace upsert por `slug`. Actualiza stock, precio, flags
 
 **Convención S3:** `products/{brand_slug}/{product_slug}/01.jpg`, `02.jpg`, etc.
 
+## Catálogo local-first (Disfragancias + assets)
+
+Pipeline para construir el catálogo Essentia desde assets locales, enriquecido con metadata de Disfragancias.
+
+### Workflow
+
+1. **Extraer catálogo Disfragancias**
+   ```bash
+   npm run extract:disfragancias
+   ```
+   Genera `data/disfragancias_products.json` y `data/disfragancias_products.csv`.
+
+2. **Construir catálogo de assets locales**
+   ```bash
+   npm run catalog:local
+   ```
+   Escanea `assets/raw-drive` por defecto. Si no existe, usa: `npm run catalog:local -- --assets-path Assets`. Genera `data/local_assets_catalog.csv`.
+
+3. **Emparejar local vs Disfragancias**
+   ```bash
+   npm run catalog:match
+   ```
+   Fuzzy match por marca + producto. Genera:
+   - `data/matched_catalog.csv` — productos locales con match
+   - `data/unmatched_local_products.csv` — sin match
+   - `data/match_report.json` — estadísticas
+
+4. **Revisar unmatched**
+   Inspecciona `data/unmatched_local_products.csv`. Productos sin match no se importan aún.
+
+5. **Construir catálogo candidato**
+   ```bash
+   npm run catalog:candidate
+   ```
+   Genera `data/essentia_catalog_candidate.csv` listo para revisión manual e import posterior.
+
+6. **Importar más tarde**
+   Adapta `essentia_catalog_candidate.csv` al formato de `import:products` o crea un script de import específico.
+
+### Scripts
+
+| Comando | Descripción |
+|---------|-------------|
+| `npm run extract:disfragancias` | Extrae catálogo de Disfragancias (API Shopify) |
+| `npm run catalog:local` | Construye catálogo desde assets locales |
+| `npm run catalog:match` | Empareja local con Disfragancias (fuzzy) |
+| `npm run catalog:candidate` | Genera candidatos para import |
+
 ## Admin (sin auth)
 
 1. Ir a `/admin/products`
@@ -197,6 +245,10 @@ La API `POST /api/admin/products/update` requiere header `x-admin-key` con el va
 | `npm run db:migrate` | Crear migración (desarrollo) |
 | `npm run db:seed` | Seed de productos y news |
 | `npm run import:products` | Importar productos desde CSV |
+| `npm run extract:disfragancias` | Extrae catálogo Disfragancias |
+| `npm run catalog:local` | Catálogo desde assets locales |
+| `npm run catalog:match` | Empareja local con Disfragancias |
+| `npm run catalog:candidate` | Genera candidatos para import |
 | `npm run db:studio` | Prisma Studio (explorar DB) |
 | `npm run news:fetch` | Ingestor de news desde JSON local |
 | `npm run test` | Tests (idempotencia payments/init, webhook APPROVED) |
