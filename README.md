@@ -216,6 +216,34 @@ Pipeline para construir el catálogo Essentia desde assets locales, enriquecido 
 6. **Importar más tarde**
    Adapta `essentia_catalog_candidate.csv` al formato de `import:products` o crea un script de import específico.
 
+## Precios proveedor y hoja de precios
+
+Pipeline para extraer precios del PDF del proveedor, emparejarlos con el catálogo y generar la hoja de precios Essentia.
+
+### Workflow
+
+1. **Extraer precios del PDF del proveedor**
+   ```bash
+   python3 scripts/extractProviderPrices.py
+   ```
+   Lee `PRECIOS 2026.pdf` y genera `data/provider_prices_2026.csv` y `data/provider_prices_report.json`.
+
+2. **Emparejar catálogo con precios proveedor**
+   ```bash
+   npm run prices:match
+   ```
+   Fuzzy match por marca + producto. Genera:
+   - `data/catalog_with_provider_prices.csv` — productos con precio proveedor
+   - `data/catalog_without_provider_prices.csv` — sin match
+   - `data/provider_prices_unused.csv` — precios no emparejados
+   - `data/provider_price_match_report.json` — estadísticas y matches de baja confianza (revisar)
+
+3. **Generar hoja de precios**
+   ```bash
+   npm run prices:sheet
+   ```
+   Lee `catalog_with_provider_prices.csv` y genera `data/essentia_pricing_sheet.csv` con cost_cop, sale_price_cop, gross_margin y pricing_tier (entry/core/premium).
+
 ### Scripts
 
 | Comando | Descripción |
@@ -224,6 +252,8 @@ Pipeline para construir el catálogo Essentia desde assets locales, enriquecido 
 | `npm run catalog:local` | Construye catálogo desde assets locales |
 | `npm run catalog:match` | Empareja local con Disfragancias (fuzzy) |
 | `npm run catalog:candidate` | Genera candidatos para import |
+| `npm run prices:match` | Empareja catálogo con precios proveedor |
+| `npm run prices:sheet` | Genera hoja de precios Essentia |
 
 ## Admin (sin auth)
 
@@ -249,6 +279,8 @@ La API `POST /api/admin/products/update` requiere header `x-admin-key` con el va
 | `npm run catalog:local` | Catálogo desde assets locales |
 | `npm run catalog:match` | Empareja local con Disfragancias |
 | `npm run catalog:candidate` | Genera candidatos para import |
+| `npm run prices:match` | Empareja catálogo con precios proveedor |
+| `npm run prices:sheet` | Genera hoja de precios Essentia |
 | `npm run db:studio` | Prisma Studio (explorar DB) |
 | `npm run news:fetch` | Ingestor de news desde JSON local |
 | `npm run test` | Tests (idempotencia payments/init, webhook APPROVED) |

@@ -1,0 +1,145 @@
+{
+  "catalog_total": 109,
+  "matched_total": 34,
+  "unmatched_total": 75,
+  "provider_total": 448,
+  "provider_unused_total": 438,
+  "low_confidence_matches": [
+    {
+      "catalog_name": "200ml",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "2 Ezgif.com Webp To Jpg Converter",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "35721 11",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "35721 13",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "35721 3",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "514mtbtpnol",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "61edpq JR1L. UF1000 1000 QL80",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "65",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "68",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "GS Odysseylimoni Photogrid.pngdisplayinggs Odysseylimoni Photogrid.png.",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "ODYSSEYMANDARINSKYVINTAGEEDITION2",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Q 106DCLUBDENUITINTENSE M FIF",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Untitleddesign 2025 10 24T235342.652",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Untitleddesign",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Armafbeach",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Armafislandbliss",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Edit 15",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Image 2023 05 04T091929.691",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Image 2023 05 04T112339.859",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Image",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "M6294015189599 White Xl 3 Ezgif.com Webp To Jpg Converter",
+      "provider_product_name": "odyssey white edition",
+      "confidence": 0.78
+    },
+    {
+      "catalog_name": "Product 17270 Ezgif.com Webp To Jpg Converter",
+      "provider_product_name": "club de nuit precieux",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Badee Al Oud Amethyst",
+      "provider_product_name": "badee al oud",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Badee Al Oud Noble Blush",
+      "provider_product_name": "badee al oud",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Badee Al Oud Sublime",
+      "provider_product_name": "badee al oud",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Musamam White",
+      "provider_product_name": "musamam black",
+      "confidence": 0.7250000000000001
+    },
+    {
+      "catalog_name": "Yara Moi",
+      "provider_product_name": "set lattafa yara",
+      "confidence": 0.7250000000000001
+    }
+  ],
+  "min_confidence_for_match": 0.65
+}

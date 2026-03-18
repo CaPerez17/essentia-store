@@ -19,6 +19,8 @@
     "catalog:local": "python3 scripts/buildLocalAssetsCatalog.py",
     "catalog:match": "npx tsx scripts/matchLocalWithDisfragancias.ts",
     "catalog:candidate": "npx tsx scripts/buildEssentiaCandidateCatalog.ts",
+    "prices:match": "npx tsx scripts/matchCatalogWithProviderPrices.ts",
+    "prices:sheet": "npx tsx scripts/buildPricingSheet.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },
