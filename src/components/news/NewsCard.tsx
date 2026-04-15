@@ -6,77 +6,84 @@ interface NewsCardProps {
 }
 
 export function NewsCard({ item, variant = "default" }: NewsCardProps) {
-  const date = new Date(item.publishedAt).toLocaleDateString("es-ES", {
+  const date = new Date(item.publishedAt).toLocaleDateString("es-CO", {
     day: "numeric",
     month: "short",
     year: "numeric",
   });
 
-  const metaParts: string[] = [];
-  if (item.brand) metaParts.push(item.brand);
-  if (item.category) metaParts.push(item.category);
-  if (item.sourceName) metaParts.push(item.sourceName);
-
   const isFeatured = variant === "featured";
   const isCompact = variant === "compact";
 
+  const categoryLabels: Record<string, string> = {
+    niche: "Nicho",
+    nicho: "Nicho",
+    designer: "Diseñador",
+    disenador: "Diseñador",
+    arab: "Árabe",
+    arabes: "Árabe",
+  };
+
   return (
-    <article
-      className={`border border-[var(--border)] bg-[var(--bg-card)] ${
-        isFeatured ? "flex flex-col" : ""
-      }`}
-    >
+    <article className={`group bg-[var(--dark)] border border-transparent hover:border-[var(--gold-border)] transition-colors duration-300 ${isFeatured ? "flex flex-col" : ""}`}>
+      {/* Image */}
       {item.imageUrl ? (
-        <div
-          className={`overflow-hidden ${
-            isFeatured ? "aspect-[16/9]" : isCompact ? "aspect-[16/10]" : "aspect-[16/10]"
-          }`}
-        >
+        <div className={`overflow-hidden ${isFeatured ? "aspect-[16/9]" : isCompact ? "aspect-[2/1]" : "aspect-[16/10]"}`}>
           <img
             src={item.imageUrl}
             alt=""
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] opacity-80 group-hover:opacity-100"
           />
         </div>
       ) : (
-        <div
-          className={`flex items-center justify-center text-[var(--text-muted)] text-sm ${
-            isFeatured ? "aspect-[16/9] bg-[var(--bg)]" : "aspect-[16/10] bg-[var(--bg)]"
-          }`}
-        >
-          {item.brand || "Novedad"}
+        <div className={`flex items-center justify-center bg-[var(--dark-3)] ${isFeatured ? "aspect-[16/9]" : isCompact ? "aspect-[2/1]" : "aspect-[16/10]"}`}>
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[var(--muted)]">
+            {item.brand || "Novedad"}
+          </span>
         </div>
       )}
-      <div className={`p-4 ${isFeatured ? "flex flex-1 flex-col" : ""}`}>
-        <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider mb-1">
-          {metaParts.join(" · ")}
-        </p>
-        <h3
-          className={`font-medium text-[var(--text)] mb-2 ${
-            isFeatured ? "text-lg" : ""
-          }`}
-        >
+
+      {/* Content */}
+      <div className={`p-5 ${isFeatured ? "flex flex-1 flex-col" : ""}`}>
+        {/* Meta line */}
+        <div className="flex items-center gap-3 mb-3">
+          {item.category && (
+            <span className="text-[8px] uppercase tracking-[0.2em] text-[var(--dark)] bg-[var(--gold)] px-2 py-0.5">
+              {categoryLabels[item.category] || item.category}
+            </span>
+          )}
+          {item.brand && (
+            <span className="text-[9px] uppercase tracking-[0.15em] text-[var(--gold)]/70">
+              {item.brand}
+            </span>
+          )}
+        </div>
+
+        {/* Title */}
+        <h3 className={`font-serif text-[var(--cream)] group-hover:text-[var(--gold)] transition-colors duration-300 mb-2 ${isFeatured ? "text-2xl" : "text-base"}`}>
           {item.title}
         </h3>
+
+        {/* Excerpt */}
         {item.excerpt && (
-          <p
-            className={`text-[var(--text-muted)] mb-3 ${
-              isFeatured ? "text-sm flex-1" : "text-sm line-clamp-2"
-            }`}
-          >
+          <p className={`text-xs text-[var(--muted)] leading-relaxed mb-4 ${isFeatured ? "flex-1" : "line-clamp-2"}`}>
             {item.excerpt}
           </p>
         )}
-        <div className="flex items-center justify-between">
-          <time className="text-xs text-[var(--text-muted)]">{date}</time>
+
+        {/* Footer */}
+        <div className="flex items-center justify-between mt-auto">
+          <time className="text-[9px] uppercase tracking-[0.15em] text-[var(--muted)]/60">
+            {date}
+          </time>
           {item.sourceUrl && (
             <a
               href={item.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-medium text-[var(--accent)] hover:underline"
+              className="text-[9px] uppercase tracking-[0.15em] text-[var(--gold)]/60 hover:text-[var(--gold)] transition-colors duration-300"
             >
-              Ver fuente →
+              Leer &rarr;
             </a>
           )}
         </div>
