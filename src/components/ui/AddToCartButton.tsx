@@ -45,9 +45,15 @@ export function AddToCartButton({
         type="button"
         onClick={handleClick}
         disabled={disabled}
-        className={`px-4 py-2 text-sm font-medium border border-[var(--accent)] bg-[var(--accent)] text-white transition-colors hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
+        className={`w-full py-2 text-[9px] uppercase tracking-[0.18em] font-normal border transition-colors duration-300 ${
+          disabled
+            ? "border-[var(--muted)]/30 text-[var(--muted)]/50 cursor-not-allowed"
+            : added
+              ? "border-[var(--gold)] bg-[var(--gold)] text-[var(--dark)]"
+              : "border-[var(--gold-border)] text-[var(--gold)] bg-transparent hover:border-[var(--gold)] hover:bg-[var(--gold)]/10"
+        } ${className}`}
       >
-        {disabled ? "Sin stock" : added ? "Añadido" : "Añadir"}
+        {disabled ? "Agotado" : added ? "Añadido" : "Agregar"}
       </button>
     );
   }
@@ -57,9 +63,15 @@ export function AddToCartButton({
       type="button"
       onClick={handleClick}
       disabled={disabled}
-      className={`w-full py-3 px-6 text-sm font-medium border border-[var(--accent)] bg-[var(--accent)] text-white transition-colors hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
+      className={`w-full py-3 px-6 text-[10px] uppercase tracking-[0.18em] font-normal border transition-colors duration-300 ${
+        disabled
+          ? "border-[var(--muted)]/30 text-[var(--muted)]/50 cursor-not-allowed"
+          : added
+            ? "border-[var(--gold)] bg-[var(--gold)] text-[var(--dark)]"
+            : "border-[var(--gold-border)] text-[var(--gold)] bg-transparent hover:border-[var(--gold)] hover:bg-[var(--gold)]/10"
+      } ${className}`}
     >
-      {disabled ? "Sin stock" : added ? "Añadido al carrito" : "Añadir al carrito"}
+      {disabled ? "Agotado" : added ? "Añadido al carrito" : "Añadir al carrito"}
     </button>
   );
 }

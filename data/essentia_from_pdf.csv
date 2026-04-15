@@ -1,0 +1,440 @@
+slug,brand,name,volume,gender,price,has_image,page
+arsenal-arsenal-100ml,Arsenal,Arsenal,100ml,masculine,150000,True,1
+arabiyat-uhud-100ml,Arabiyat,Uhud,100ml,feminine,360000,True,1
+arabiyat-marwa-100ml,Arabiyat,Marwa,100ml,feminine,360000,True,1
+arabiyat-safa-100ml,Arabiyat,Safa,100ml,feminine,360000,True,1
+agata-ruiz-de-la-prada-gotas-de-100ml,Agata Ruiz De La Prada,Gotas De,100ml,unisex,150000,True,1
+color-albane-noble-grand-palais-color-albane-noble-grand-palais-100ml,Color Albane Noble Grand Palais,Color Albane Noble Grand Palais,100ml,masculine,240000,True,1
+al-jazeera-onix-100ml,Al-Jazeera,Onix,100ml,masculine,1200000,True,1
+afnan-9pm-100ml,Afnan,9Pm,100ml,masculine,260000,True,1
+afnan-9am-dive-100ml,Afnan,9Am Dive,100ml,unisex,260000,True,1
+afnan-9am-dive-set,Afnan,9Am Dive,set,unisex,300000,True,1
+afnan-9am-100ml,Afnan,9Am,100ml,feminine,260000,True,1
+afnan-9-pm-pour-femme-100ml,Afnan,9 Pm Pour Femme,100ml,feminine,260000,True,1
+afnan-9-pm-rebel-100ml,Afnan,9 Pm Rebel,100ml,feminine,280000,True,2
+afnan-kiana-crush-100ml,Afnan,Kiana Crush,100ml,feminine,350000,True,2
+afnan-kiana-angel-100ml,Afnan,Kiana Angel,100ml,feminine,350000,True,2
+ahli-vega-60ml,Ahli,Vega,60ml,unisex,450000,True,2
+ahli-karpos-60ml,Ahli,Karpos,60ml,unisex,450000,True,2
+ahli-corvus-60ml,Ahli,Corvus,60ml,feminine,450000,True,2
+ahli-canes-60ml,Ahli,Canes,60ml,unisex,450000,True,2
+animale-animale-200ml,Animale,Animale,200ml,feminine,310000,True,2
+armaf-club-de-nuit-precieux-55ml,Armaf,Club De Nuit Precieux,55ml,masculine,350000,True,2
+extracto-de-perfume-armaf-eter-100ml,Extracto De Perfume Armaf,Eter,100ml,unisex,350000,True,2
+armaf-queen-of-arabian-100ml,Armaf,Queen  Of Arabian,100ml,feminine,370000,True,2
+armaf-checkmate-king-100ml,Armaf,Checkmate King,100ml,masculine,340000,True,2
+armaf-yum-yum-100ml,Armaf,Yum Yum,100ml,feminine,330000,True,3
+armaf-island-blish-100ml,Armaf,Island Blish,100ml,feminine,340000,True,3
+armaf-odyssey-mandarin-sky-100ml,Armaf,Odyssey Mandarin Sky,100ml,masculine,260000,True,3
+armaf-set-mandarin-sky-set,Armaf,Set Mandarin Sky,set,masculine,380000,True,3
+armaf-mandarin-sky-elixir-100ml,Armaf,Mandarin Sky Elixir,100ml,masculine,310000,True,3
+armaf-artisto-100ml,Armaf,Artisto,100ml,masculine,310000,True,3
+armaf-odyssey-aoud-100ml,Armaf,Odyssey Aoud,100ml,masculine,270000,True,3
+armaf-odyssey-acquua-100ml,Armaf,Odyssey Acquua,100ml,masculine,260000,True,3
+armaf-odyssey-wild-one-100ml,Armaf,Odyssey Wild One,100ml,masculine,300000,True,3
+armaf-odyssey-white-edition-200ml,Armaf,Odyssey White Edition,200ml,masculine,300000,True,3
+armaf-odyssey-black-edition-100ml,Armaf,Odyssey Black Edition,100ml,masculine,250000,True,3
+armaf-odyssey-mega-100ml,Armaf,Odyssey Mega,100ml,masculine,250000,True,3
+armaf-odyssey-mega-set,Armaf,Odyssey Mega,set,masculine,330000,True,3
+armaf-odyssey-tyrant-100ml,Armaf,Odyssey Tyrant,100ml,masculine,260000,True,4
+armaf-odyssey-dubai-chocolat-100ml,Armaf,Odyssey Dubai Chocolat,100ml,masculine,270000,True,4
+armaf-odyssey-limon-100ml,Armaf,Odyssey Limon,100ml,unisex,260000,True,4
+armaf-odyssey-candee-100ml,Armaf,Odyssey Candee,100ml,feminine,250000,True,4
+armaf-odyssey-spectra-100ml,Armaf,Odyssey Spectra,100ml,unisex,260000,True,4
+armaf-club-de-nuit-intensa-man-100ml,Armaf,Club De Nuit Intensa Man,100ml,masculine,240000,True,4
+armaf-club-de-nuit-precieux-100ml,Armaf,Club De Nuit Precieux,100ml,masculine,340000,True,4
+armaf-club-de-nuit-millestone-100ml,Armaf,Club De Nuit Millestone,100ml,masculine,260000,True,4
+armaf-club-de-nuit-urban-elixir-100ml,Armaf,Club De Nuit Urban Elixir,100ml,masculine,260000,True,4
+armaf-club-de-nuit-iconic-100ml,Armaf,Club De Nuit Iconic,100ml,masculine,270000,True,4
+armaf-club-de-nuit-sillage-100ml,Armaf,Club De Nuit Sillage,100ml,masculine,270000,True,4
+armaf-club-de-nuit-unfold-105ml,Armaf,Club De Nuit Unfold,105ml,unisex,300000,True,4
+armaf-club-de-nuit-oud-105ml,Armaf,Club De Nuit Oud,105ml,unisex,360000,True,4
+armaf-club-de-nuit-women-100ml,Armaf,Club De Nuit Women,100ml,feminine,250000,True,5
+armaf-club-de-nuit-imperiale-100ml,Armaf,Club De Nuit Imperiale,100ml,feminine,270000,True,5
+armaf-beach-party-105ml,Armaf,Beach Party,105ml,unisex,280000,True,5
+antonio-banderas-blue-100ml,Antonio Banderas,Blue,100ml,masculine,150000,True,5
+seduction-antonio-banderas-king-of-100ml,Seduction Antonio Banderas,King Of,100ml,masculine,180000,True,5
+seduction-antonio-banderas-the-icon-100ml,Seduction Antonio Banderas,The Icon,100ml,masculine,200000,True,5
+al-haramain-amber-oud-gold-al-haramain-amber-oud-gold-60ml,Al Haramain Amber Oud -Gold,Al Haramain Amber Oud -Gold,60ml,unisex,270000,True,5
+edition-al-haramain-amber-oud-gold-edition-al-haramain-amber-oud-gold-100ml,Edition Al Haramain Amber Oud -Gold,Edition Al Haramain Amber Oud -Gold,100ml,unisex,340000,True,5
+edition-al-haramain-amber-oud-gold-edition-al-haramain-amber-oud-gold-120ml,Edition Al Haramain Amber Oud -Gold,Edition Al Haramain Amber Oud -Gold,120ml,unisex,370000,True,5
+edition-al-haramain-amber-oud-rouge-edition-al-haramain-amber-oud-rouge-100ml,Edition Al Haramain Amber Oud -Rouge,Edition Al Haramain Amber Oud -Rouge,100ml,unisex,350000,True,5
+al-haramain-amber-oud-dubai-100ml,Al Haramain Amber Oud,Dubai,100ml,unisex,350000,True,5
+night-al-haramain-amber-oud-acqua-75ml,Night Al Haramain Amber Oud,Acqua,75ml,unisex,350000,True,5
+dubai-al-haramain-amber-oud-violeta-60ml,Dubai Al Haramain Amber Oud,Violeta,60ml,feminine,400000,True,5
+al-haramain-l-venture-blanche-100ml,Al Haramain,L-Venture Blanche,100ml,masculine,250000,True,6
+al-haramain-l-venture-al-haramain-l-venture-100ml,Al Haramain -L-Venture,Al Haramain -L-Venture,100ml,masculine,250000,True,6
+al-haramain-l-venture-rose-100ml,Al Haramain,L-Venture Rose,100ml,feminine,320000,True,6
+al-haramain-l-venture-femme-100ml,Al Haramain,L-Venture Femme,100ml,feminine,240000,True,6
+ariana-grande-cloud-100ml,Ariana Grande,Cloud,100ml,feminine,350000,True,6
+ariana-grande-cloud-set,Ariana Grande,Cloud,set,feminine,430000,True,6
+ariana-grande-cloud-100ml-v1,Ariana Grande,Cloud,100ml,feminine,380000,True,6
+ariana-grande-cloud-20-100ml,Ariana Grande,Cloud 2.0,100ml,feminine,360000,True,6
+ariana-grande-cloud-20,Ariana Grande,Cloud 2.0,,feminine,450000,True,6
+ariana-grande-sweet-candy-100ml,Ariana Grande,Sweet Candy,100ml,feminine,330000,True,6
+ariana-grande-mod-blush-100ml,Ariana Grande,Mod Blush,100ml,feminine,450000,True,6
+ariana-grande-mod-vainilla-100ml,Ariana Grande,Mod Vainilla,100ml,feminine,450000,True,6
+ariana-grande-moonlight-100ml,Ariana Grande,Moonlight,100ml,feminine,330000,True,6
+ariana-grande-thank-you-next,Ariana Grande,Thank You Next,,feminine,450000,True,7
+bharara-rome-rose-bharara-rome-rose-100ml,Bharara- Rome Rose,Bharara- Rome Rose,100ml,feminine,260000,True,7
+bharara-rome-rose-bharara-rome-rose-100ml-v1,Bharara- Rome Rose,Bharara- Rome Rose,100ml,masculine,260000,True,7
+bharara-rome-extradose-bharara-rome-extradose-100ml,Bharara- Rome Extradose,Bharara- Rome Extradose,100ml,masculine,260000,True,7
+bharara-king-parfum-bharara-king-parfum-100ml,Bharara- King  Parfum,Bharara- King  Parfum,100ml,masculine,420000,True,7
+bharara-king-edp-bharara-king-edp-100ml,Bharara- King Edp,Bharara- King Edp,100ml,masculine,320000,True,7
+bharara-onyx-100ml,Bharara,Onyx,100ml,masculine,380000,True,7
+bharara-king-edp-set-bharara-king-edp-set,Bharara- King Edp Set,Bharara- King Edp Set,,masculine,440000,True,7
+bharara-niche-femme-bharara-niche-femme-100ml,Bharara- Niche Femme,Bharara- Niche Femme,100ml,masculine,350000,True,7
+bharara-bleu-bharara-bleu-100ml,Bharara- Bleu,Bharara- Bleu,100ml,masculine,310000,True,7
+bharara-chocolate-bharara-chocolate-100ml,Bharara- Chocolate,Bharara- Chocolate,100ml,masculine,430000,True,7
+bharara-king-solei-100ml,Bharara,King Solei,100ml,masculine,410000,True,7
+bharara-rose-100ml,Bharara,Rose,100ml,feminine,390000,True,7
+bharara-set-mini-bharara-set-mini,Bharara- Set Mini,Bharara- Set Mini,,unisex,390000,True,8
+bvlgari-agua-100ml,Bvlgari,Agua,100ml,masculine,520000,True,8
+bvlgari-in-black-100ml,Bvlgari,In Black,100ml,masculine,480000,True,8
+bvlgari-wood-neroli-100ml,Bvlgari,Wood Neroli,100ml,masculine,390000,True,8
+bvulgari-omnia-coral-100ml,Bvulgari,Omnia Coral,100ml,feminine,490000,True,8
+bvulgari-omnia-crystaline-100ml,Bvulgari,Omnia Crystaline,100ml,feminine,510000,True,8
+bvulgari-omnia-amatista-100ml,Bvulgari,Omnia Amatista,100ml,feminine,490000,True,8
+bond-9-fidi-bond-9-fidi-100ml,Bond 9 Fidi,Bond 9 Fidi,100ml,unisex,1350000,True,8
+bond-9-new-york-forever-bond-9-new-york-forever-100ml,Bond 9 New York Forever,Bond 9 New York Forever,100ml,feminine,1300000,True,8
+bond-9-chez-bond-9-chez-100ml,Bond 9 Chez,Bond 9 Chez,100ml,masculine,1100000,True,8
+bond-9-the-scent-bond-9-the-scent-100ml,Bond 9 The Scent,Bond 9 The Scent,100ml,unisex,1400000,True,8
+bond-9-wall-street-bond-9-wall-street-100ml,Bond 9 Wall Street,Bond 9 Wall Street,100ml,unisex,1100000,True,8
+bond-9-new-york-gardenia-bond-9-new-york-gardenia-100ml,Bond 9 New York Gardenia,Bond 9 New York Gardenia,100ml,feminine,1450000,True,8
+bond-9-beekman-place-bond-9-beekman-place-100ml,Bond 9  Beekman Place,Bond 9  Beekman Place,100ml,feminine,1450000,True,9
+bond-9-new-york-tribeca-bond-9-new-york-tribeca-100ml,Bond 9 New York Tribeca,Bond 9 New York Tribeca,100ml,feminine,1450000,True,9
+bond-9-new-york-madison-square-bond-9-new-york-madison-square-100ml,Bond 9 New York  Madison Square,Bond 9 New York  Madison Square,100ml,feminine,1200000,True,9
+park-burberry-body-60ml,Park Burberry,Body,60ml,feminine,330000,True,9
+burberry-my-burberry-100ml,Burberry,My Burberry,100ml,feminine,520000,True,9
+burberry-her-100ml,Burberry,Her,100ml,feminine,500000,True,9
+burberry-brit-100ml,Burberry,Brit,100ml,feminine,280000,True,9
+burberry-touch-100ml,Burberry,Touch,100ml,feminine,280000,True,9
+britnay-spears-fantasy-100ml,Britnay Spears,Fantasy,100ml,feminine,230000,True,9
+chanel-chance-chanel-100ml,Chanel,Chance Chanel,100ml,feminine,950000,True,9
+chanel-n5-100ml,Chanel,N°5,100ml,feminine,850000,True,9
+chanel-coco-100ml,Chanel,Coco,100ml,feminine,800000,True,9
+chanel-bleau-de-chanel-100ml,Chanel,Bleau De Chanel,100ml,masculine,670000,True,9
+chanel-allure-home-sport-calvin-klein-ck-one-200ml,Chanel,Allure Home Sport Calvin Klein - Ck One,200ml,unisex,2800000,True,10
+calvin-klein-ck-in2u-100ml,Calvin Klein,Ck In2U,100ml,masculine,170000,True,10
+calvin-klein-ck-in2u-150ml,Calvin Klein,Ck In2U,150ml,masculine,190000,True,10
+calvin-klein-ck-in2u-100ml-v1,Calvin Klein,Ck In2U,100ml,feminine,170000,True,10
+calvin-klein-ck-in2u-150ml-v1,Calvin Klein,Ck In2U,150ml,feminine,190000,True,10
+calvin-klein-eternity-100ml,Calvin Klein,Eternity,100ml,masculine,280000,True,10
+calvin-klein-eternity-100ml-v1,Calvin Klein,Eternity,100ml,feminine,300000,True,10
+calvin-klein-ck-free-100ml,Calvin Klein,Ck Free,100ml,masculine,240000,True,10
+calvin-klein-ck-bee-100ml,Calvin Klein,Ck Bee,100ml,unisex,250000,True,10
+creed-silver-100ml,Creed,Silver,100ml,masculine,1200000,True,10
+creed-aventus-100ml,Creed,Aventus,100ml,masculine,1700000,True,10
+creed-green-rish-tweeed-100ml,Creed,Green Rish Tweeed,100ml,masculine,1500000,True,10
+cartier-eau-de-cartier-no-100ml,Cartier,Eau De Cartier (No,100ml,masculine,380000,True,11
+concentrada-cartier-must-100ml,Concentrada) Cartier,Must,100ml,feminine,480000,True,11
+curve-connect-100ml,Curve,Connect,100ml,masculine,150000,True,11
+curve-crush-100ml,Curve,Crush,100ml,feminine,190000,True,11
+clinique-clinique-happy-100ml,Clinique,Clinique Happy,100ml,feminine,290000,True,11
+clinique-clinique-happy-100ml-v1,Clinique,Clinique Happy,100ml,masculine,240000,True,11
+clinique-aromatic-elixir-100ml,Clinique,Aromatic Elixir,100ml,feminine,370000,True,11
+carolina-herrera-212-men-100ml,Carolina Herrera,212 Men,100ml,masculine,420000,True,11
+carolina-herrera-212-men-200ml,Carolina Herrera,212 Men,200ml,masculine,540000,True,11
+carolina-herrera-212-men-vip-100ml,Carolina Herrera,212 Men Vip,100ml,masculine,390000,True,11
+carolina-herrera-212-men-vip-200ml,Carolina Herrera,212 Men Vip,200ml,masculine,470000,True,11
+carolina-herrera-212-men-vip-100ml-v1,Carolina Herrera,212 Men Vip,100ml,masculine,430000,True,11
+black-carolina-herrera-212-heroes-100ml,Black Carolina Herrera,212 Heroes,100ml,masculine,400000,True,11
+carolina-herrera-ch-100ml,Carolina Herrera,Ch,100ml,masculine,400000,True,12
+carolina-herrera-herrera-100ml,Carolina Herrera,Herrera,100ml,masculine,350000,True,12
+carolina-herrera-bad-boy-100ml,Carolina Herrera,Bad Boy,100ml,masculine,450000,True,12
+carolina-herrera-bad-boy-elixir-100ml,Carolina Herrera,Bad Boy Elixir,100ml,masculine,520000,True,12
+carolina-herrera-bad-boy-100ml-v1,Carolina Herrera,Bad Boy,100ml,masculine,460000,True,12
+cobalt-carolina-herrera-212-sexy-100ml,Cobalt Carolina Herrera,212 Sexy,100ml,feminine,480000,True,12
+carolina-herrera-212-vip-rose-100ml,Carolina Herrera,212 Vip Rose,100ml,feminine,470000,True,12
+carolina-herrera-212-vip-100ml,Carolina Herrera,212 Vip,100ml,feminine,420000,True,12
+carolina-herrera-ch-100ml-v1,Carolina Herrera,Ch,100ml,feminine,420000,True,12
+carolina-herrera-good-girl-100ml,Carolina Herrera,Good Girl,100ml,feminine,650000,True,12
+carolina-herrera-good-girl-100ml-v1,Carolina Herrera,Good Girl,100ml,feminine,650000,True,12
+dazzling-garden-carolina-herrera-good-girl-100ml,Dazzling Garden Carolina Herrera,Good Girl,100ml,feminine,590000,True,12
+blush-carolina-herrera-good-girl-100ml,Blush Carolina Herrera,Good Girl,100ml,feminine,590000,True,12
+diesel-plus-variadas-diesel-plus-variadas-75ml,Diesel Plus Variadas,Diesel Plus Variadas,75ml,masculine,80000,True,13
+dumont-paris-nitro-red-100ml,Dumont Paris,Nitro Red,100ml,masculine,290000,True,13
+diesel-bad-diesel-100ml,Diesel,Bad Diesel,100ml,masculine,310000,True,13
+devier-strong-as-metal-80ml,Devier,Strong As Metal,80ml,masculine,550000,True,13
+devier-acid-rain-80ml,Devier,Acid Rain,80ml,masculine,550000,True,13
+devier-forgive-us-80ml,Devier,Forgive Us,80ml,masculine,550000,True,13
+devier-seven-100ml,Devier,Seven,100ml,masculine,680000,True,13
+dior-edt-sauvage-100ml,Dior Edt,Sauvage,100ml,masculine,550000,True,13
+dior-perfum-sauvage-100ml,Dior Perfum,Sauvage,100ml,masculine,830000,True,13
+dior-edp-sauvage-100ml,Dior Edp,Sauvage,100ml,masculine,650000,True,13
+dior-perfum-sauvage-forte-100ml,Dior Perfum,Sauvage Forte,100ml,masculine,810000,True,13
+dior-sauvage-elixir-100ml,Dior,Sauvage Elixir,100ml,masculine,1150000,True,13
+dior-jadore-100ml,Dior,Jadore,100ml,feminine,700000,True,13
+dior-miss-dior-100ml,Dior,Miss Dior,100ml,feminine,750000,True,14
+dior-fahrenheit-dior-addict-100ml,Dior,Fahrenheit Dior - Addict,100ml,feminine,680000,True,14
+dolce-gabbana-intenso-100ml,Dolce & Gabbana,Intenso,100ml,masculine,350000,True,14
+dolce-gabbana-k-100ml,Dolce & Gabbana,K,100ml,masculine,330000,True,14
+dolce-gabbana-q-100ml,Dolce & Gabbana,Q,100ml,feminine,370000,True,14
+dolce-gabbana-light-blue-100ml,Dolce & Gabbana,Light Blue,100ml,feminine,350000,True,14
+tradicional-dolce-gabbana-light-blue-125ml,Tradicional Dolce & Gabbana,Light Blue,125ml,masculine,350000,True,14
+dolce-gabbana-light-blue-100ml-v1,Dolce & Gabbana,Light Blue,100ml,feminine,400000,True,14
+intense-dolce-gabbana-light-blue-the-100ml,Intense Dolce & Gabbana,Light Blue The,100ml,feminine,350000,True,14
+sun-dolce-gabbana-light-blue-capri-100ml,Sun Dolce & Gabbana,Light Blue Capri,100ml,feminine,350000,True,14
+in-love-escada-flor-de-sol-100ml,In Love Escada,Flor De Sol,100ml,feminine,3000000,True,14
+emporio-armani-strong-with-you-100ml,Emporio Armani,Strong With You,100ml,feminine,650000,True,14
+emporio-armani-strong-with-you-100ml-v1,Emporio Armani,Strong With You,100ml,feminine,420000,True,15
+french-avenue-liquid-brun-100ml,French Avenue,Liquid Brun,100ml,masculine,290000,True,15
+french-avenue-cocoa-morado-100ml,French Avenue,Cocoa Morado,100ml,masculine,310000,True,15
+giorgio-armani-acqua-di-gioia-100ml,Giorgio Armani,Acqua Di Gioia,100ml,feminine,460000,True,15
+giorgio-armani-acqua-di-gio-125ml,Giorgio Armani,Acqua Di Gio,125ml,masculine,650000,True,15
+giorgio-armani-acqua-di-gio-100ml,Giorgio Armani,Acqua Di Gio,100ml,masculine,650000,True,15
+profondo-givenchy-pour-homme-blue-label-100ml,Profondo Givenchy,Pour Homme Blue Label,100ml,masculine,330000,True,15
+givenchy-gentleman-100ml,Givenchy,Gentleman,100ml,masculine,315000,True,15
+guess-seductive-homme-blue-100ml,Guess,Seductive Homme Blue,100ml,masculine,190000,True,15
+guess-man-100ml,Guess,Man,100ml,masculine,150000,True,15
+guess-guess-estuche,Guess,Guess Estuche,,feminine,320000,True,15
+guess-guess-75ml,Guess,Guess,75ml,feminine,200000,True,15
+guess-dare-100ml,Guess,Dare,100ml,feminine,220000,True,15
+guess-by-marciano-estuche,Guess,By Marciano Estuche,,feminine,280000,True,16
+guess-girl-belle-estuche,Guess,Girl Belle Estuche,,feminine,280000,True,16
+guess-seductive-estuche,Guess,Seductive Estuche,,feminine,280000,True,16
+hugo-boss-just-diferent-100ml,Hugo Boss,Just Diferent,100ml,masculine,3000000,True,16
+hugo-boss-unlimited-200ml,Hugo Boss,Unlimited,200ml,masculine,420000,True,16
+hugo-boss-bottled-night-100ml,Hugo Boss,Bottled Night,100ml,masculine,290000,True,16
+hugo-boss-bottled-100ml,Hugo Boss,Bottled,100ml,masculine,340000,True,16
+hugo-boss-bottled-beyond-100ml,Hugo Boss,Bottled  Beyond,100ml,masculine,440000,True,16
+hugo-boss-the-scent-100ml,Hugo Boss,The Scent,100ml,masculine,430000,True,16
+hugo-boss-in-motion-100ml,Hugo Boss,In Motion,100ml,masculine,250000,True,16
+hugo-boss-femme-75ml,Hugo Boss,Femme,75ml,feminine,260000,True,16
+hugo-boss-x-boss-x-100ml,Hugo Boss,X Boss X,100ml,feminine,270000,True,16
+hugo-boss-woman-90ml,Hugo Boss,Woman,90ml,feminine,240000,True,17
+hugo-boss-mavie-75ml,Hugo Boss,Mavie,75ml,feminine,270000,True,17
+hugo-boss-woman-75ml,Hugo Boss,Woman,75ml,feminine,230000,True,17
+hinode-inebrante-100ml,Hinode,Inebrante,100ml,masculine,280000,True,17
+isseay-miyake-ieau-dissey-puor-125ml,Isseay Miyake,Ieau Dissey Puor,125ml,masculine,300000,True,17
+homme-isseay-miyake-ieau-dissey-puor-200ml,Homme Isseay Miyake,Ieau Dissey Puor,200ml,masculine,390000,True,17
+homme-isseay-miyake-ieau-dissey-puor-100ml,Homme Isseay Miyake,Ieau Dissey Puor,100ml,feminine,330000,True,17
+femme-ilmin-mexico-30ml,Femme Ilmin,Mexico,30ml,masculine,550000,True,17
+ilmin-il-voss-30ml,Ilmin,Il Voss,30ml,masculine,550000,True,17
+ilmin-il-roso-30ml,Ilmin,Il Roso,30ml,feminine,550000,True,17
+ilmin-il-arte-30ml,Ilmin,Il Arte,30ml,feminine,550000,True,17
+ilmin-il-arte-30ml-v1,Ilmin,Il Arte,30ml,feminine,550000,True,17
+jean-paul-gaultier-le-beau-100ml,Jean Paul Gaultier,Le Beau,100ml,masculine,540000,True,17
+jean-paul-gaultier-le-male-100ml,Jean Paul Gaultier,Le Male,100ml,masculine,440000,True,18
+jean-paul-gaultier-clasique-100ml,Jean Paul Gaultier,Clasique,100ml,feminine,400000,True,18
+jean-paul-gaultier-paradise-125ml,Jean Paul Gaultier,Paradise,125ml,masculine,550000,True,18
+garden-jean-paul-gaultier-elixir-100ml,Garden Jean Paul Gaultier,Elixir,100ml,masculine,580000,True,18
+jean-paul-gaultier-elixir-100ml,Jean Paul Gaultier,Elixir,100ml,masculine,620000,True,18
+jean-paul-gaultier-scandal-100ml,Jean Paul Gaultier,Scandal,100ml,masculine,460000,True,18
+clasica-edt-jean-paul-gaultier-scandal-100ml,Clasica Edt Jean Paul Gaultier,Scandal,100ml,masculine,550000,True,18
+intense-jean-paul-gaultier-scandal-100ml,Intense Jean Paul Gaultier,Scandal,100ml,masculine,595000,True,18
+absolu-jean-paul-gaultier-scandal-absolu-jean-paul-gaultier-scandal-100ml,Absolu Jean Paul Gaultier -Scandal,Absolu Jean Paul Gaultier -Scandal,100ml,feminine,460000,True,18
+juicy-couture-viva-la-juicy-100ml,Juicy Couture,Viva La Juicy,100ml,feminine,320000,True,18
+juicy-couture-viva-la-juicy-gold-100ml,Juicy Couture,Viva La Juicy Gold,100ml,feminine,280000,True,18
+juicy-couture-viva-la-juicy-rose-100ml,Juicy Couture,Viva La Juicy Rose,100ml,feminine,320000,True,18
+juicy-couture-viva-la-juicy-noir-100ml,Juicy Couture,Viva La Juicy Noir,100ml,feminine,340000,True,18
+juicy-couture-viva-la-juicy-neon-100ml,Juicy Couture,Viva La Juicy Neon,100ml,feminine,340000,True,19
+juicy-couture-viva-la-juicy-100ml-v1,Juicy Couture,Viva La Juicy,100ml,feminine,400000,True,19
+petals-please-jo-milano-paris-game-of-spade-100ml,Petals Please Jo Milano Paris,Game Of Spade,100ml,masculine,420000,True,19
+royale-jo-milano-paris-game-of-spade-100ml,Royale Jo Milano Paris,Game Of Spade,100ml,masculine,490000,True,19
+royale-jo-milano-paris-game-of-spade-100ml-v1,Royale Jo Milano Paris,Game Of Spade,100ml,masculine,440000,True,19
+wildcard-jo-milano-paris-game-of-spade-100ml,Wildcard Jo Milano Paris,Game Of Spade,100ml,masculine,490000,True,19
+wildcard-jo-milano-paris-game-of-spade-100ml-v1,Wildcard Jo Milano Paris,Game Of Spade,100ml,masculine,420000,True,19
+spahyre-jo-milano-paris-game-of-spade-100ml,Spahyre Jo Milano Paris,Game Of Spade,100ml,masculine,420000,True,19
+ruby-jo-milano-paris-game-of-spade-100ml,Ruby Jo Milano Paris,Game Of Spade,100ml,masculine,420000,True,19
+gold-jo-milano-paris-game-of-spade-100ml,Gold Jo Milano Paris,Game Of Spade,100ml,masculine,380000,True,19
+jackpot-jo-milano-paris-game-of-spade-100ml,Jackpot Jo Milano Paris,Game Of Spade,100ml,masculine,420000,True,19
+mooon-kenzo-amour-100ml,Mooon Kenzo,Amour,100ml,feminine,350000,True,19
+kenzo-flor-100ml,Kenzo,Flor,100ml,feminine,350000,True,19
+loewe-siete-loewe-100ml,Loewe,Siete Loewe,100ml,masculine,430000,True,20
+lorenzo-pazzaglia-summer-50ml,Lorenzo Pazzaglia,Summer,50ml,unisex,930000,True,20
+hammer-lacoste-l1212-rose-100ml,Hammer Lacoste,L.12.12 Rose,100ml,feminine,350000,True,20
+lacoste-l1212-blanc-100ml,Lacoste,L.12.12 Blanc,100ml,masculine,350000,True,20
+lacoste-lacoste-red-125ml,Lacoste,Lacoste Red,125ml,masculine,290000,True,20
+le-labo-santal-33-50ml,Le Labo,Santal 33,50ml,masculine,1650000,True,20
+lattafa-teriaq-100ml,Lattafa,Teriaq,100ml,feminine,250000,True,20
+lattafa-musamam-white-intense-100ml,Lattafa,Musamam White Intense,100ml,masculine,310000,True,20
+lattafa-musamam-black-100ml,Lattafa,Musamam Black,100ml,masculine,340000,True,20
+lattafa-emeer-100ml,Lattafa,Emeer,100ml,unisex,280000,True,20
+lattafa-art-of-universe-100ml,Lattafa,Art Of Universe,100ml,masculine,290000,True,20
+lattafa-qaed-al-fursan-100ml,Lattafa,Qaed Al Fursan,100ml,unisex,220000,True,20
+lattafa-qaed-al-fursan-100ml-v1,Lattafa,Qaed Al Fursan,100ml,,220000,True,20
+lattafa-afeef-100ml,Lattafa,Afeef,100ml,feminine,350000,True,21
+lattafa-ameer-100ml,Lattafa,Ameer,100ml,unisex,250000,True,21
+lattafa-fakhar-rose-100ml,Lattafa,Fakhar  Rose,100ml,feminine,270000,True,21
+lattafa-fakhar-gold-100ml,Lattafa,Fakhar  Gold,100ml,feminine,270000,True,21
+lattafa-haya-100ml,Lattafa,Haya,100ml,feminine,250000,True,21
+lattafa-fakhar-black-100ml,Lattafa,Fakhar  Black,100ml,feminine,230000,True,21
+lattafa-amethyst-100ml,Lattafa,Amethyst,100ml,unisex,250000,True,21
+lattafa-noble-blush-100ml,Lattafa,Noble Blush,100ml,feminine,250000,True,21
+lattafa-oud-for-flory-100ml,Lattafa,Oud For Flory,100ml,unisex,250000,True,21
+lattafa-sublime-100ml,Lattafa,Sublime,100ml,unisex,250000,True,21
+lattafa-badee-al-oud-100ml,Lattafa,Badee Al Oud,100ml,unisex,250000,True,21
+lattafa-al-quiam-gold-100ml,Lattafa,Al Quiam Gold,100ml,masculine,350000,True,21
+lattafa-ajwad-60ml,Lattafa,Ajwad,60ml,unisex,340000,True,21
+lattafa-give-me-courmand-cookie-75ml,Lattafa,Give Me Courmand Cookie,75ml,feminine,340000,True,22
+grave-lattafa-give-me-courmand-choco-75ml,Grave Lattafa,Give Me Courmand Choco,75ml,feminine,340000,True,22
+overdose-lattafa-give-me-courmand-75ml,Overdose Lattafa,Give Me Courmand,75ml,feminine,340000,True,22
+mallow-madness-lattafa-give-me-courmand-75ml,Mallow Madness Lattafa,Give Me Courmand,75ml,feminine,340000,True,22
+whipped-pleasure-lattafa-khamrah-100ml,Whipped Pleasure Lattafa,Khamrah,100ml,unisex,260000,True,22
+lattafa-khamrah-set,Lattafa,Khamrah Set,,unisex,320000,True,22
+lattafa-khamrah-qahwa-100ml,Lattafa,Khamrah Qahwa,100ml,unisex,260000,True,22
+lattafa-shaheen-100ml,Lattafa,Shaheen,100ml,masculine,320000,True,22
+latttafa-asad-zanzibar-100ml,Latttafa Asad,Zanzibar,100ml,masculine,230000,True,22
+latttafa-asad-asad-100ml,Latttafa Asad,Asad,100ml,masculine,230000,True,22
+latttafa-asad-asad-elixir-100ml,Latttafa Asad,Asad Elixir,100ml,masculine,280000,True,22
+lattafa-asad-bourdoun-100ml,Lattafa  Asad,Bourdoun,100ml,masculine,260000,True,22
+lattafa-yara-rosada-100ml,Lattafa,Yara Rosada,100ml,feminine,230000,True,22
+lattafa-yara-candy-100ml,Lattafa,Yara Candy,100ml,feminine,210000,True,23
+lattafa-yara-blanca-100ml,Lattafa,Yara Blanca,100ml,feminine,230000,True,23
+lattafa-yara-tous-100ml,Lattafa,Yara Tous,100ml,feminine,230000,True,23
+lattafa-set-lattafa-yara,Lattafa,Set Lattafa Yara,,feminine,300000,True,23
+lattafa-ajwad-60ml-v1,Lattafa,Ajwad,60ml,feminine,340000,True,23
+lattafa-mayar-100ml,Lattafa,Mayar,100ml,feminine,250000,True,23
+lattafa-mayar-natura-100ml,Lattafa,Mayar Natura,100ml,feminine,240000,True,23
+lattafa-eclaire-75ml,Lattafa,Eclaire,75ml,feminine,285000,True,23
+lancome-la-vida-es-bella-100ml,Lancome,La Vida Es Bella,100ml,feminine,540000,True,23
+louis-vuitton-ombre-nomada-100ml,Louis Vuitton,Ombre Nomada,100ml,masculine,2300000,True,23
+louis-vuitton-pacific-chill-100ml,Louis Vuitton,Pacific Chill,100ml,masculine,2050000,True,23
+louis-vuitton-artrape-reves-100ml,Louis Vuitton,Artrape Reves,100ml,masculine,2050000,True,23
+louis-vuitton-imagination-100ml,Louis Vuitton,Imagination,100ml,masculine,2050000,True,23
+moshino-estuche-coleccion-5ml,Moshino,Estuche Coleccion,5ml,,220000,True,24
+moshino-fresh-pink-100ml,Moshino,Fresh Pink,100ml,feminine,260000,True,24
+moshino-fresh-blue-100ml,Moshino,Fresh Blue,100ml,feminine,250000,True,24
+moshino-funny-100ml,Moshino,Funny,100ml,feminine,250000,True,24
+moshino-pearl-100ml,Moshino,Pearl,100ml,feminine,350000,True,24
+moshino-set-pearl-set,Moshino,Set Pearl,set,feminine,430000,True,24
+moshino-set-pearl-set-v1,Moshino,Set Pearl,set,feminine,390000,True,24
+moshino-love-love-100ml,Moshino,Love Love,100ml,feminine,260000,True,25
+moshino-pink-bouquet-100ml,Moshino,Pink Bouquet,100ml,feminine,250000,True,25
+montale-arabians-tonke-100ml,Montale,Arabians Tonke,100ml,unisex,550000,True,25
+montale-intense-cafe-100ml,Montale,Intense Cafe,100ml,unisex,460000,True,25
+montale-ristretto-cafe-100ml,Montale,Ristretto Cafe,100ml,unisex,480000,True,25
+montale-starry-night-100ml,Montale,Starry Night,100ml,unisex,440000,True,25
+montale-rose-musk-100ml,Montale,Rose Musk,100ml,feminine,430000,True,25
+montale-wood-on-fire-100ml,Montale,Wood On Fire,100ml,masculine,520000,True,25
+montale-day-dreams-100ml,Montale,Day Dreams,100ml,masculine,500000,True,25
+montale-fantastic-basilic-100ml,Montale,Fantastic Basilic,100ml,masculine,520000,True,25
+montale-chyprre-fruite-100ml,Montale,Chyprre Fruite,100ml,masculine,500000,True,25
+montale-rendez-vouz-100ml,Montale,Rendez Vouz,100ml,masculine,470000,True,25
+montale-rose-musk-intense-100ml,Montale,Rose Musk Intense,100ml,unisex,420000,True,25
+montale-crazy-love-100ml,Montale,Crazy Love,100ml,feminine,440000,True,26
+montale-black-out-100ml,Montale,Black Out,100ml,masculine,500000,True,26
+montblanc-legend-spirit-100ml,Montblanc,Legend Spirit,100ml,masculine,250000,True,26
+montblanc-legend-100ml,Montblanc,Legend,100ml,masculine,290000,True,26
+montblanc-femme-indiviiduelle-100ml,Montblanc,Femme Indiviiduelle,100ml,feminine,240000,True,26
+montblanc-signature-100ml,Montblanc,Signature,100ml,feminine,310000,True,26
+montblanc-starwalker-75ml,Montblanc,Starwalker,75ml,masculine,190000,True,26
+montblanc-explorer-100ml,Montblanc,Explorer,100ml,masculine,299000,True,26
+maison-francis-baccarat-rouge-100ml,Maison Francis,Baccarat Rouge,100ml,unisex,1900000,True,26
+540-maison-alhambra-delihah-100ml,540 Maison Alhambra,Delihah,100ml,feminine,220000,True,26
+maison-alhambra-spectre-100ml,Maison Alhambra,Spectre,100ml,unisex,260000,True,26
+malachite-maison-alhambra-jean-lowe-100ml,Malachite Maison Alhambra,Jean Lowe,100ml,masculine,270000,True,26
+immortal-maison-alhambra-jean-lowe-100ml,Immortal Maison Alhambra,Jean Lowe,100ml,masculine,270000,True,26
+maison-alhambra-jean-lowe-100ml,Maison Alhambra,Jean Lowe,100ml,masculine,270000,True,27
+immortal-maison-alhambra-rose-petal-100ml,Immortal Maison Alhambra,Rose Petal,100ml,feminine,280000,True,27
+must-perfume-velvet-rose-100ml,Must Perfume,Velvet Rose,100ml,feminine,260000,True,27
+matai-noor-50ml,Matai,Noor,50ml,,380000,True,27
+matai-sabah-50ml,Matai,Sabah,50ml,,380000,True,27
+matai-zeenith-50ml,Matai,Zeenith,50ml,,380000,True,27
+matai-sahara-50ml,Matai,Sahara,50ml,,380000,True,27
+matai-celeste-50ml,Matai,Celeste,50ml,,380000,True,27
+nautica-voyage-100ml,Nautica,Voyage,100ml,masculine,150000,True,27
+nautica-voyage-sport-100ml,Nautica,Voyage Sport,100ml,masculine,150000,True,27
+nautica-classic-100ml,Nautica,Classic,100ml,masculine,150000,True,27
+nautica-blue-100ml,Nautica,Blue,100ml,masculine,150000,True,27
+orientica-set-orientica-set-30ml,Orientica Set,Orientica Set,30ml,unisex,300000,True,27
+orientica-saffron-negra-80ml,Orientica,Saffron Negra,80ml,unisex,380000,True,28
+orientica-amber-noir-80ml,Orientica,Amber Noir,80ml,unisex,400000,True,28
+orientica-velvet-oud-80ml,Orientica,Velvet Oud,80ml,unisex,400000,True,28
+orientica-royal-amber-80ml,Orientica,Royal Amber,80ml,unisex,380000,True,28
+orientica-royal-blue-80ml,Orientica,Royal Blue,80ml,unisex,400000,True,28
+oscar-de-la-renta-women-100ml,Oscar De La Renta,Women,100ml,feminine,300000,True,28
+paris-hilton-men-100ml,Paris Hilton,Men,100ml,masculine,230000,True,28
+paris-hilton-can-can-set,Paris Hilton,Can Can Set,,feminine,300000,True,28
+paris-hilton-can-can-100ml,Paris Hilton,Can Can,100ml,feminine,220000,True,28
+paris-hilton-rosh-rush-estuche,Paris Hilton,Rosh Rush Estuche,,feminine,300000,True,28
+paris-hilton-rosh-rush-100ml,Paris Hilton,Rosh Rush,100ml,feminine,240000,True,28
+paris-hilton-platinum-rush-estuche,Paris Hilton,Platinum Rush Estuche,,feminine,310000,True,28
+paris-hilton-platinum-rush-100ml,Paris Hilton,Platinum Rush,100ml,feminine,240000,True,28
+paris-hilton-heires-100ml,Paris Hilton,Heires,100ml,feminine,2800000,True,28
+paris-hilton-tradicional-100ml,Paris Hilton,Tradicional,100ml,feminine,230000,True,29
+paris-hilton-set-tradicional,Paris Hilton,Set Tradicional,,feminine,280000,True,29
+paco-rabanne-one-millon-100ml,Paco Rabanne,One Millon,100ml,masculine,410000,True,29
+paco-rabanne-one-millon-lucky-100ml,Paco Rabanne,One Millon Lucky,100ml,masculine,500000,True,29
+paco-rabbane-lady-millon-80ml,Paco Rabbane,Lady Millon,80ml,feminine,440000,True,29
+paco-rabanne-black-xs-100ml,Paco Rabanne,Black Xs,100ml,masculine,360000,True,29
+paco-rabanne-black-xs-pure-100ml,Paco Rabanne,Black Xs Pure,100ml,masculine,410000,True,29
+paco-rabbane-black-xs-80ml,Paco Rabbane,Black Xs,80ml,feminine,380000,True,29
+paco-rabanne-black-xs-pure-80ml,Paco Rabanne,Black Xs Pure,80ml,feminine,410000,True,29
+paco-rabanne-phantom-100ml,Paco Rabanne,Phantom,100ml,masculine,430000,True,29
+paco-rabanne-invictus-100ml,Paco Rabanne,Invictus,100ml,masculine,460000,True,29
+paco-rabanne-invictus-victory-100ml,Paco Rabanne,Invictus Victory,100ml,masculine,460000,True,29
+paco-rabanne-invictus-victory-100ml-v1,Paco Rabanne,Invictus Victory,100ml,masculine,530000,True,29
+absolu-paco-rabbane-olimpea-100ml,Absolu Paco Rabbane,Olimpea,100ml,feminine,440000,True,29
+perri-elis-360-100ml,Perri Elis,360,100ml,masculine,250000,True,30
+perri-elis-360-red-100ml,Perri Elis,360 Red,100ml,masculine,250000,True,30
+perry-elis-360-coral-estuche,Perry Elis,360 Coral Estuche,,feminine,300000,True,30
+perry-elis-360-tradicional-100ml,Perry Elis,360 Tradicional,100ml,feminine,240000,True,30
+perry-elis-360-splash-236ml,Perry Elis,360 Splash,236ml,feminine,90000,True,30
+perry-elis-18-splash-crema-de,Perry Elis,18 Splash + Crema De,,feminine,300000,True,30
+polo-ralph-laurent-ralph-100ml,Polo Ralph Laurent,Ralph,100ml,feminine,330000,True,30
+polo-ralph-laurent-big-pony-2-100ml,Polo Ralph Laurent,Big Pony 2,100ml,feminine,320000,True,30
+polo-ralph-laurent-red-100ml,Polo Ralph Laurent,Red,100ml,masculine,320000,True,30
+polo-ralph-laurent-black-100ml,Polo Ralph Laurent,Black,100ml,masculine,320000,True,30
+polo-ralph-laurent-blue-100ml,Polo Ralph Laurent,Blue,100ml,masculine,320000,True,30
+parfum-d-marly-delina-100ml,Parfum D Marly,Delina,100ml,feminine,1250000,True,30
+parfum-d-marly-delina-exclusiva-100ml,Parfum D Marly,Delina Exclusiva,100ml,feminine,1200000,True,30
+parfum-d-marly-delina-rose-100ml,Parfum D Marly,Delina Rose,100ml,feminine,115000,True,30
+parfum-d-marly-layton-exclusif-paloma-picasso-100ml,Parfum D Marly,Layton Exclusif Paloma - Picasso,100ml,feminine,360000,True,31
+rave-now-women-100ml,Rave,Now Women,100ml,feminine,210000,True,31
+rave-now-men-100ml,Rave,Now Men,100ml,masculine,210000,True,31
+rave-now-blanca-100ml,Rave,Now Blanca,100ml,masculine,210000,True,31
+rave-now-rouge-100ml,Rave,Now Rouge,100ml,masculine,210000,True,31
+roger-gallet-jean-marie-farine,Roger & Gallet,Jean Marie Farine,,masculine,585000,True,31
+roger-gallet-jean-marie-farine-100ml,Roger & Gallet,Jean Marie Farine,100ml,masculine,275000,True,31
+rasasi-hawas-ice-100ml,Rasasi,Hawas Ice,100ml,masculine,270000,True,31
+rasasi-hawas-100ml,Rasasi,Hawas,100ml,masculine,240000,True,31
+rasasi-hawas-tropical-100ml,Rasasi,Hawas Tropical,100ml,masculine,360000,True,31
+rasasi-hawas-fire-100ml,Rasasi,Hawas Fire,100ml,masculine,370000,True,31
+rasasi-hawas-viper-100ml,Rasasi,Hawas Viper,100ml,masculine,350000,True,31
+rasasi-hawas-kobra-100ml,Rasasi,Hawas Kobra,100ml,masculine,330000,True,31
+rayhaan-rayhaan-elixir-100ml,Rayhaan,Rayhaan Elixir,100ml,masculine,280000,True,32
+stallion-53-stallion-53-100ml,Stallion 53,Stallion 53,100ml,masculine,230000,True,32
+stallion-53-elixir-88-100ml,Stallion 53,Elixir 88,100ml,masculine,250000,True,32
+stallion-capcha-36-100ml,Stallion,Capcha 36,100ml,masculine,230000,True,32
+tommy-hilfiger-tommy-now-100ml,Tommy Hilfiger,Tommy Now,100ml,masculine,250000,True,32
+tommy-hilfiger-tommy-girl-100ml,Tommy Hilfiger,Tommy Girl,100ml,feminine,275000,True,32
+tous-kids-100ml,Tous,Kids,100ml,masculine,185000,True,32
+tous-baby-100ml,Tous,Baby,100ml,unisex,185000,True,32
+tous-kids-100ml-v1,Tous,Kids,100ml,feminine,185000,True,32
+tous-man-100ml,Tous,Man,100ml,masculine,220000,True,32
+tous-more-more-pink-90ml,Tous,More More Pink,90ml,feminine,300000,True,32
+tubees-pink-sugar-50ml,Tubees,Pink Sugar,50ml,feminine,120000,True,32
+splash-victorias-secrets-splash-victorias-secrets-250ml,Splash Victoria”S Secrets,Splash Victoria”S Secrets,250ml,feminine,90000,True,32
+salvatore-ferragamo-incanto-100ml,Salvatore Ferragamo,Incanto,100ml,feminine,240000,True,32
+victorias-secrets-bombshell-100ml,Victoria”S Secrets,Bombshell,100ml,feminine,460000,True,33
+versace-eau-fraiche-100ml,Versace,Eau Fraiche,100ml,masculine,310000,True,33
+versace-eros-100ml,Versace,Eros,100ml,masculine,430000,True,33
+versace-eros-flame-100ml,Versace,Eros Flame,100ml,masculine,430000,True,33
+versace-eros-energy-100ml,Versace,Eros Energy,100ml,masculine,380000,True,33
+versace-blue-jeans-75ml,Versace,Blue Jeans,75ml,masculine,180000,True,33
+versace-blue-jeans-75ml-v1,Versace,Blue Jeans,75ml,feminine,180000,True,33
+versace-dylan-blue-100ml,Versace,Dylan Blue,100ml,masculine,350000,True,33
+versace-eros-pour-femme,Versace,Eros Pour Femme,,feminine,500000,True,33
+versace-yellow-diamond-100ml,Versace,Yellow Diamond,100ml,feminine,330000,True,33
+versace-set-yellow-diamond,Versace,Set Yellow Diamond,,feminine,420000,True,33
+versace-brght-crystal-absolu-90ml,Versace,Brght Crystal Absolu,90ml,feminine,380000,True,33
+versace-bright-crystal,Versace,Bright Crystal,,feminine,500000,True,33
+valentino-born-in-roma-100ml,Valentino,Born In Roma,100ml,masculine,545000,True,33
+valentino-born-in-roma-intense-100ml,Valentino,Born In Roma Intense,100ml,masculine,670000,True,34
+valentino-born-in-roma-uoomo-100ml,Valentino,Born In Roma Uoomo,100ml,masculine,480000,True,34
+valentino-born-in-roma-yellow-100ml,Valentino,Born In Roma Yellow,100ml,masculine,580000,True,34
+valentino-born-in-roma-green-100ml,Valentino,Born In Roma Green,100ml,masculine,545000,True,34
+valentino-born-in-roma-coral-100ml,Valentino,Born In Roma Coral,100ml,feminine,620000,True,34
+fantasy-victorinox-swiss-army-100ml,Fantasy Victorinox,Swiss Army,100ml,masculine,200000,True,34
+vulcan-feu-100ml,Vulcan,Feu,100ml,unisex,340000,True,34
+vulcan-baie-100ml,Vulcan,Baie,100ml,feminine,360000,True,34
+yves-saint-laurent-black-opium-100ml,Yves Saint Laurent,Black Opium,100ml,feminine,590000,True,34
+yves-saint-laurent-y-edt-100ml,Yves Saint Laurent,Y Edt,100ml,masculine,460000,True,34
+yves-saint-laurent-y-edp-100ml,Yves Saint Laurent,Y Edp,100ml,masculine,550000,True,34
+yves-saint-laurent-edt-100ml,Yves Saint Laurent,Edt,100ml,masculine,460000,True,34
+yves-saint-laurent-my-self-100ml,Yves Saint Laurent,My Self,100ml,masculine,550000,True,34
+xerjoff-erba-pure-100ml,Xerjoff,Erba Pure,100ml,masculine,1200000,True,34
+xerjoff-naxos-100ml,Xerjoff,Naxos,100ml,masculine,1200000,True,35
+xerjoff-torino-21-100ml,Xerjoff,Torino 21,100ml,feminine,1200000,True,35

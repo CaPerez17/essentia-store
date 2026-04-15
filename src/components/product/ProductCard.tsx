@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { PriceTag } from "@/components/ui/PriceTag";
 import { WishlistButton } from "@/components/ui/WishlistButton";
 import { AddToCartButton } from "@/components/ui/AddToCartButton";
 import { getProductFirstImageUrl, type ProductWithImages } from "@/lib/product-images";
@@ -11,19 +10,11 @@ interface ProductCardProps {
   showAddToCart?: boolean;
 }
 
-function parseTags(str: string | null): string[] {
-  if (!str) return [];
-  try {
-    const arr = JSON.parse(str) as unknown;
-    return Array.isArray(arr) ? arr : [];
-  } catch {
-    return [];
-  }
-}
+const fmt = (n: number) =>
+  "$\u00A0" + n.toLocaleString("es-CO", { maximumFractionDigits: 0 });
 
 export function ProductCard({ product, showAddToCart = true }: ProductCardProps) {
   const imageUrl = getProductFirstImageUrl(product);
-  const tags = parseTags(product.tags);
 
   const wishlistItem = {
     productId: product.id,
@@ -35,54 +26,47 @@ export function ProductCard({ product, showAddToCart = true }: ProductCardProps)
   };
 
   return (
-    <article className="group border border-[var(--border)] bg-[var(--bg-card)]">
-      <div className="relative aspect-[3/4] bg-[var(--bg)] overflow-hidden">
+    <article className="group bg-[var(--dark)] border border-transparent hover:border-[var(--gold-border)] transition-colors duration-300">
+      <div className="relative aspect-[3/4] bg-[#111009] overflow-hidden">
         <Link href={`/p/${product.slug}`} className="block h-full">
           {imageUrl ? (
             <img
               src={imageUrl}
               alt={product.name}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
           ) : (
-            <div className="h-full w-full flex items-center justify-center bg-[var(--bg)] text-[var(--text-muted)] text-sm">
+            <div className="h-full w-full flex items-center justify-center text-[var(--muted)] text-xs uppercase tracking-widest">
               {product.brand}
             </div>
           )}
         </Link>
-        <div className="absolute top-2 right-2">
+        <div className="absolute top-3 right-3">
           <WishlistButton item={wishlistItem} size="sm" />
         </div>
         {product.onSale && (
-          <span className="absolute top-2 left-2 bg-[var(--accent)] text-white text-xs px-2 py-0.5">
+          <span className="absolute top-3 left-3 text-[8px] uppercase tracking-[0.2em] text-[var(--gold)] border border-[var(--gold-border)] px-2 py-1 bg-[var(--dark)]/80 backdrop-blur-sm">
             Oferta
           </span>
         )}
       </div>
       <div className="p-4">
-        <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider mb-0.5">
+        <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--gold)] mb-1">
           {product.brand}
         </p>
         <Link href={`/p/${product.slug}`} className="block">
-          <h3 className="font-medium text-[var(--text)] hover:underline mb-2">
+          <h3 className="font-serif text-sm text-[var(--cream)] group-hover:text-[var(--gold)] transition-colors duration-300 mb-2">
             {product.name}
           </h3>
         </Link>
-        <div className="flex items-center justify-between gap-2 mb-3">
-          <PriceTag price={product.price} compareAt={product.compareAt} size="sm" />
-        </div>
-        {tags.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-3">
-            {tags.slice(0, 3).map((t) => (
-              <span
-                key={t}
-                className="text-xs text-[var(--text-muted)] border border-[var(--border)] px-1.5 py-0.5"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-        )}
+        <p className="text-xs text-[var(--muted)] mb-3">
+          {fmt(product.price)}
+          {product.compareAt != null && product.compareAt > product.price && (
+            <span className="ml-2 line-through opacity-50">
+              {fmt(product.compareAt)}
+            </span>
+          )}
+        </p>
         {showAddToCart && (
           <AddToCartButton product={product} variant="compact" />
         )}

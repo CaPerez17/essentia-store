@@ -60,7 +60,7 @@ export function OrderConfirmation({ order }: { order: OrderWithItems }) {
                 </p>
               </div>
               <p className="font-medium">
-                €{(item.price * item.quantity).toFixed(2)}
+                ${(item.price * item.quantity).toLocaleString("es-CO", { maximumFractionDigits: 0 })}
               </p>
             </div>
           ))}
@@ -68,7 +68,7 @@ export function OrderConfirmation({ order }: { order: OrderWithItems }) {
 
         <div className="flex justify-between font-medium text-lg mb-8">
           <span>Total</span>
-          <span>€{order.total.toFixed(2)}</span>
+          <span>${order.total.toLocaleString("es-CO", { maximumFractionDigits: 0 })}</span>
         </div>
 
         <div className="text-sm text-[var(--text-muted)] space-y-1 mb-8">

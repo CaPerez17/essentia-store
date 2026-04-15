@@ -21,6 +21,9 @@
     "catalog:candidate": "npx tsx scripts/buildEssentiaCandidateCatalog.ts",
     "prices:match": "npx tsx scripts/matchCatalogWithProviderPrices.ts",
     "prices:sheet": "npx tsx scripts/buildPricingSheet.ts",
+    "images:sync": "npx tsx scripts/downloadAndUploadImages.ts",
+    "extract:pdf": "python3 scripts/extract_pdf.py data/PRECIOS_2026.pdf",
+    "import:pdf": "npx tsx scripts/importFromPDF.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -28,11 +31,13 @@
     "seed": "npx tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.967.0",
     "@prisma/client": "^5.22.0",
     "next": "14.2.35",
     "prisma": "^5.22.0",
     "react": "^18",
     "react-dom": "^18",
+    "sharp": "^0.34.5",
     "zod": "^4.3.6",
     "zustand": "^5.0.11"
   },
@@ -40,6 +45,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/sharp": "^0.31.1",
     "dotenv": "^17.3.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.35",

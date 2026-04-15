@@ -81,7 +81,7 @@ export function CartContent() {
                 </div>
               </div>
               <div className="text-right shrink-0">
-                <p className="font-medium">€{(item.price * item.quantity).toFixed(2)}</p>
+                <p className="font-medium">${(item.price * item.quantity).toLocaleString("es-CO", { maximumFractionDigits: 0 })}</p>
               </div>
             </li>
           ))}
@@ -94,11 +94,11 @@ export function CartContent() {
           </h2>
           <div className="flex justify-between text-sm mb-4">
             <span className="text-[var(--text-muted)]">Subtotal</span>
-            <span>€{total.toFixed(2)}</span>
+            <span>${total.toLocaleString("es-CO", { maximumFractionDigits: 0 })}</span>
           </div>
           <div className="flex justify-between font-medium mb-6">
             <span>Total</span>
-            <span>€{total.toFixed(2)}</span>
+            <span>${total.toLocaleString("es-CO", { maximumFractionDigits: 0 })}</span>
           </div>
           <Link
             href="/checkout"
