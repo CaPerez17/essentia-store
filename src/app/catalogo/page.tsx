@@ -28,26 +28,43 @@ export default async function CatalogPage() {
     min: Math.floor(Math.min(...prices, 0)),
     max: Math.ceil(Math.max(...prices, 0)),
   };
+  const totalProducts = products.length;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mb-8">
-        <h1 className="text-2xl font-medium tracking-tight text-[var(--text)]">
-          Catálogo
-        </h1>
+    <div className="bg-[var(--dark)]">
+      <div className="mx-auto max-w-7xl px-4 pt-12 pb-20 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-10">
+          <h1 className="font-serif text-4xl sm:text-5xl font-light text-[var(--cream)] mb-2">
+            Catálogo completo
+          </h1>
+          <p className="text-[10px] uppercase tracking-[0.25em] text-[var(--gold)]/60">
+            {totalProducts} fragancias disponibles
+          </p>
+        </div>
+
+        <Suspense
+          fallback={
+            <div className="py-24 text-center">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--muted)]">
+                Cargando catálogo...
+              </p>
+            </div>
+          }
+        >
+          <CatalogClient
+            totalProducts={totalProducts}
+            filterOptions={{
+              brands,
+              families,
+              occasions,
+              intensities,
+              genders,
+              priceRange,
+            }}
+          />
+        </Suspense>
       </div>
-      <Suspense fallback={<div className="py-12 text-center text-[var(--text-muted)]">Cargando catálogo...</div>}>
-        <CatalogClient
-          filterOptions={{
-          brands,
-          families,
-          occasions,
-          intensities,
-          genders,
-          priceRange,
-          }}
-        />
-      </Suspense>
     </div>
   );
 }

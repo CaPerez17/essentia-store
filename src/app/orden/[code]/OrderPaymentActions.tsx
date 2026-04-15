@@ -9,7 +9,7 @@ Pago por transferencia bancaria:
 
 IBAN: ES00 0000 0000 0000 0000 0000
 Concepto: [CÓDIGO DE TU PEDIDO]
-Importe: [TOTAL DEL PEDIDO] €
+Importe: [TOTAL DEL PEDIDO] COP
 
 Una vez realizada la transferencia, contacta a info@essentia.es con el justificante.
 `;
@@ -87,7 +87,7 @@ export function OrderPaymentActions({ order }: { order: Order }) {
       {showTransfer && (
         <div className="mt-4 p-4 border border-[var(--border)] bg-[var(--bg)] text-sm text-[var(--text-muted)] whitespace-pre-wrap">
           {TRANSFER_INSTRUCTIONS.replace("[CÓDIGO DE TU PEDIDO]", order.code)
-            .replace("[TOTAL DEL PEDIDO]", order.total.toFixed(2))}
+            .replace("[TOTAL DEL PEDIDO]", `$ ${order.total.toLocaleString("es-CO", { maximumFractionDigits: 0 })}`)}
         </div>
       )}
     </div>

@@ -13,38 +13,41 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--bg-card)]/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 bg-[var(--dark)]" style={{ borderBottom: "0.5px solid rgba(201,169,110,0.15)" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="text-xl font-medium tracking-tight text-[var(--text)]">
+          <Link
+            href="/"
+            className="text-[var(--gold)] text-sm font-normal uppercase tracking-[0.35em]"
+          >
             ESSENTIA
           </Link>
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center gap-8">
             <Link
               href="/catalogo"
-              className="text-sm text-[var(--text-muted)] hover:text-[var(--text)] transition-colors"
+              className="text-[11px] uppercase tracking-[0.18em] text-[var(--muted)] hover:text-[var(--gold)] transition-colors duration-300"
             >
               Catálogo
             </Link>
             <Link
               href="/novedades"
-              className="text-sm text-[var(--text-muted)] hover:text-[var(--text)] transition-colors"
+              className="text-[11px] uppercase tracking-[0.18em] text-[var(--muted)] hover:text-[var(--gold)] transition-colors duration-300"
             >
               Novedades
             </Link>
             <Link
               href="/wishlist"
-              className="text-sm text-[var(--text-muted)] hover:text-[var(--text)] transition-colors"
+              className="text-[11px] uppercase tracking-[0.18em] text-[var(--muted)] hover:text-[var(--gold)] transition-colors duration-300"
             >
               Wishlist
             </Link>
             <Link
               href="/carrito"
-              className="flex items-center gap-1.5 text-sm text-[var(--text-muted)] hover:text-[var(--text)] transition-colors"
+              className="relative text-[11px] uppercase tracking-[0.18em] text-[var(--muted)] hover:text-[var(--gold)] transition-colors duration-300"
             >
-              <span>Carrito</span>
+              Carrito
               {itemCount > 0 && (
-                <span className="flex h-5 min-w-5 items-center justify-center rounded bg-[var(--accent)] text-white text-xs">
+                <span className="absolute -top-1.5 -right-3 w-4 h-4 rounded-full bg-[var(--gold)] text-[var(--dark)] text-[9px] flex items-center justify-center font-medium">
                   {itemCount}
                 </span>
               )}

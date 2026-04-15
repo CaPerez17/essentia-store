@@ -246,7 +246,7 @@ export function CheckoutForm() {
       <div className="border-t border-[var(--border)] pt-6">
         <div className="flex justify-between font-medium mb-6">
           <span>Total</span>
-          <span>€{total.toFixed(2)}</span>
+          <span>${total.toLocaleString("es-CO", { maximumFractionDigits: 0 })}</span>
         </div>
         <button
           type="submit"

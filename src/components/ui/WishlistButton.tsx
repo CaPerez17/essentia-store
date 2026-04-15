@@ -23,7 +23,7 @@ export function WishlistButton({ item, className = "", size = "md" }: WishlistBu
         e.stopPropagation();
         toggleItem(item);
       }}
-      className={`${sizeClasses} flex items-center justify-center border border-[var(--border)] bg-[var(--bg-card)] transition-colors hover:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)] ${className}`}
+      className={`${sizeClasses} flex items-center justify-center border border-[var(--gold-border)] bg-[var(--dark)]/70 backdrop-blur-sm transition-colors duration-300 hover:border-[var(--gold)] focus:outline-none ${className}`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ export function WishlistButton({ item, className = "", size = "md" }: WishlistBu
         fill={isInWishlist ? "currentColor" : "none"}
         stroke="currentColor"
         strokeWidth={1.5}
-        className={`${size === "sm" ? "w-4 h-4" : "w-5 h-5"} ${isInWishlist ? "text-[var(--accent)]" : "text-[var(--text-muted)]"}`}
+        className={`${size === "sm" ? "w-3.5 h-3.5" : "w-4 h-4"} ${isInWishlist ? "text-[var(--gold)]" : "text-[var(--gold)]/60"}`}
       >
         <path
           strokeLinecap="round"

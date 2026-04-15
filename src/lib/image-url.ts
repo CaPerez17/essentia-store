@@ -14,3 +14,17 @@ export function resolveImageUrl(key: string): string {
   const normalizedKey = trimmed.startsWith("/") ? trimmed.slice(1) : trimmed;
   return `${normalizedBase}/${normalizedKey}`;
 }
+
+/** Full public URL for a single S3 key. */
+export function getProductImageUrl(key: string): string {
+  return resolveImageUrl(key);
+}
+
+/** Resolves an array of ProductImage-like objects into ordered {src, alt} pairs. */
+export function getProductImages(
+  images: { key: string; alt: string; position: number }[],
+): { src: string; alt: string }[] {
+  return [...images]
+    .sort((a, b) => a.position - b.position)
+    .map((img) => ({ src: resolveImageUrl(img.key), alt: img.alt }));
+}
