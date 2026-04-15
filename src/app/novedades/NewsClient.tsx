@@ -8,6 +8,13 @@ interface NewsClientProps {
   initialNews: NewsItem[];
 }
 
+const categories = [
+  { value: "", label: "Todas" },
+  { value: "niche", label: "Nicho" },
+  { value: "designer", label: "Diseñador" },
+  { value: "arab", label: "Árabe" },
+];
+
 export function NewsClient({ initialNews }: NewsClientProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -25,51 +32,94 @@ export function NewsClient({ initialNews }: NewsClientProps) {
     router.push(qs ? `/novedades?${qs}` : "/novedades", { scroll: false });
   };
 
+  const featured = initialNews[0] ?? null;
+  const rest = initialNews.slice(1);
+
   return (
     <div>
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+      {/* Toolbar */}
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center mb-10">
+        {/* Category chips */}
+        <div className="flex gap-2">
+          {categories.map((cat) => (
+            <button
+              key={cat.value}
+              type="button"
+              onClick={() => updateParams({ categoria: cat.value, q })}
+              className={`px-4 py-1.5 text-[10px] uppercase tracking-[0.15em] border transition-colors duration-200 ${
+                category === cat.value
+                  ? "border-[var(--gold)] bg-[var(--gold)]/10 text-[var(--gold)]"
+                  : "border-[var(--gold-border)] text-[var(--muted)] hover:border-[var(--gold)]/50 hover:text-[var(--cream)]"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Search */}
         <form
           onSubmit={(e) => {
             e.preventDefault();
             const fd = new FormData(e.currentTarget);
             updateParams({ q: (fd.get("q") as string) || "", categoria: category });
           }}
-          className="flex flex-1 max-w-md gap-2"
+          className="flex sm:ml-auto max-w-xs gap-2"
         >
           <input
             type="search"
             name="q"
-            placeholder="Buscar por título..."
+            placeholder="Buscar..."
             defaultValue={q}
-            className="flex-1 border border-[var(--border)] bg-[var(--bg-card)] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
+            className="flex-1 bg-transparent border border-[var(--gold-border)] px-3 py-2 text-xs text-[var(--cream)] placeholder:text-[var(--muted)]/50 focus:outline-none focus:border-[var(--gold)]"
           />
           <button
             type="submit"
-            className="border border-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white transition-colors"
+            className="border border-[var(--gold-border)] px-4 py-2 text-[9px] uppercase tracking-[0.15em] text-[var(--gold)] transition-colors duration-200 hover:border-[var(--gold)] hover:bg-[var(--gold)]/5"
           >
             Buscar
           </button>
         </form>
-        <select
-          value={category}
-          onChange={(e) => updateParams({ categoria: e.target.value, q })}
-          className="w-full sm:w-48 border border-[var(--border)] bg-[var(--bg-card)] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
-        >
-          <option value="">Todas las categorías</option>
-          <option value="niche">Nicho</option>
-          <option value="designer">Diseñador</option>
-          <option value="arab">Árabe</option>
-        </select>
       </div>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {initialNews.map((n) => (
-          <NewsCard key={n.id} item={n} />
-        ))}
-      </div>
+
+      {/* Featured + grid */}
+      {featured && (
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-px bg-[rgba(201,169,110,0.06)] mb-px">
+          {/* Featured takes 3 cols */}
+          <div className="lg:col-span-3 bg-[var(--dark)]">
+            <NewsCard item={featured} variant="featured" />
+          </div>
+          {/* Side stack takes 2 cols */}
+          <div className="lg:col-span-2 grid grid-cols-1 gap-px bg-[rgba(201,169,110,0.06)]">
+            {rest.slice(0, 2).map((n) => (
+              <div key={n.id} className="bg-[var(--dark)]">
+                <NewsCard item={n} variant="compact" />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Rest grid */}
+      {rest.length > 2 && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[rgba(201,169,110,0.06)] mt-px">
+          {rest.slice(2).map((n) => (
+            <div key={n.id} className="bg-[var(--dark)]">
+              <NewsCard item={n} />
+            </div>
+          ))}
+        </div>
+      )}
+
       {initialNews.length === 0 && (
-        <p className="py-12 text-center text-[var(--text-muted)]">
-          No hay novedades que coincidan.
-        </p>
+        <div className="py-24 text-center">
+          <p className="font-serif text-xl text-[var(--cream)] mb-2">
+            Sin novedades
+          </p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--muted)]">
+            Prueba con otra categoría o búsqueda
+          </p>
+        </div>
       )}
     </div>
   );
