@@ -82,6 +82,16 @@ export async function handleWebhookApproved(
     });
   });
 
+  // Fire-and-forget emails (never fail webhook on email error)
+  try {
+    const { sendOrderConfirmation, sendNewOrderNotification } = await import("@/lib/emails");
+    await sendOrderConfirmation(order.id);
+    await sendNewOrderNotification(order.id);
+    console.log("[webhook] Emails enviados para orden", orderCode);
+  } catch (emailError) {
+    console.error("[webhook] Error enviando emails:", emailError);
+  }
+
   console.log("[webhook] Payment APPROVED for order:", orderCode);
   return { ok: true };
 }
