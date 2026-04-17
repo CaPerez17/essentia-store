@@ -3,7 +3,10 @@ import { prisma } from "@/lib/prisma";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const FROM = "ESSENTIA <onboarding@resend.dev>";
+// Once the domain essentiaperfumes.co is verified in Resend, set in Vercel:
+//   EMAIL_FROM=ESSENTIA <hola@essentiaperfumes.co>
+// Until then, falls back to Resend's default sandbox sender.
+const FROM = process.env.EMAIL_FROM || "ESSENTIA <onboarding@resend.dev>";
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "devcamper97@gmail.com";
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://essentia-store.vercel.app";
 
