@@ -1,12 +1,30 @@
 import { CheckoutForm } from "./CheckoutForm";
+import { CheckoutSteps } from "./CheckoutSteps";
+import { CheckoutSummary } from "./CheckoutSummary";
 
 export default function CheckoutPage() {
   return (
-    <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:px-8">
-      <h1 className="text-2xl font-medium tracking-tight text-[var(--text)] mb-8">
-        Checkout
-      </h1>
-      <CheckoutForm />
+    <div className="bg-[var(--dark)] min-h-screen">
+      <div className="mx-auto max-w-6xl px-4 pt-12 pb-20 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-10">
+          <h1 className="font-serif text-4xl sm:text-5xl font-light text-[var(--cream)] mb-2">
+            Finalizar compra
+          </h1>
+          <p className="text-[10px] uppercase tracking-[0.25em] text-[var(--gold)]/60">
+            Completa tus datos para procesar el pedido
+          </p>
+        </div>
+
+        {/* Progress */}
+        <CheckoutSteps current="data" />
+
+        {/* Form + Summary */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10">
+          <CheckoutForm />
+          <CheckoutSummary />
+        </div>
+      </div>
     </div>
   );
 }

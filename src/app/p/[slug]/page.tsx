@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { ProductGallery } from "./ProductGallery";
 import { ProductActions } from "./ProductActions";
 import { SimilarProducts } from "./SimilarProducts";
+import { ScentPyramid } from "./ScentPyramid";
+import { getScentNotes, generateDescription } from "@/lib/scent-notes";
 
 export default async function ProductPage({
   params,
@@ -29,56 +31,104 @@ export default async function ProductPage({
     }
   })();
 
+  const notes = getScentNotes(product.family, product.gender);
+  const description =
+    product.description ||
+    generateDescription(product.brand, product.name, product.family, product.gender);
+
+  const genderLabel: Record<string, string> = {
+    masculine: "Masculino",
+    feminine: "Femenino",
+    unisex: "Unisex",
+  };
+
+  // Extract volume from tags
+  const volume = tags.find((t) => /^\d+ml$/i.test(t) || t.toLowerCase() === "set") || null;
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <nav className="mb-8 text-sm text-[var(--text-muted)]">
-        <Link href="/catalogo" className="hover:text-[var(--text)]">
-          Catálogo
-        </Link>
-        <span className="mx-2">/</span>
-        <span>{product.name}</span>
-      </nav>
-
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        <ProductGallery images={images} productName={product.name} brand={product.brand} />
-        <div>
-          <p className="text-xs uppercase tracking-wider text-[var(--text-muted)] mb-1">
+    <div className="bg-[var(--dark)] min-h-screen">
+      <div className="mx-auto max-w-7xl px-4 pt-8 pb-20 sm:px-6 lg:px-8">
+        {/* Breadcrumb */}
+        <nav className="mb-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.15em] text-[var(--muted)]">
+          <Link href="/" className="hover:text-[var(--gold)] transition-colors">
+            Inicio
+          </Link>
+          <span className="text-[var(--gold)]/30">/</span>
+          <Link href="/catalogo" className="hover:text-[var(--gold)] transition-colors">
+            Catálogo
+          </Link>
+          <span className="text-[var(--gold)]/30">/</span>
+          <Link
+            href={`/catalogo?marca=${encodeURIComponent(product.brand)}`}
+            className="hover:text-[var(--gold)] transition-colors"
+          >
             {product.brand}
-          </p>
-          <h1 className="text-2xl font-medium tracking-tight text-[var(--text)] mb-4">
-            {product.name}
-          </h1>
-          <ProductActions product={product} />
-          {product.description && (
-            <p className="mt-6 text-[var(--text-muted)]">{product.description}</p>
-          )}
-          {tags.length > 0 && (
-            <div className="mt-6 flex flex-wrap gap-2">
-              {tags.map((t) => (
-                <span
-                  key={t}
-                  className="border border-[var(--border)] px-2 py-1 text-xs text-[var(--text-muted)]"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          )}
-          <p className="mt-4 text-sm text-[var(--text-muted)]">
-            {product.stock > 0 ? (
-              <span>En stock ({product.stock} unidades)</span>
-            ) : (
-              <span>Sin stock</span>
-            )}
-          </p>
-        </div>
-      </div>
+          </Link>
+          <span className="text-[var(--gold)]/30">/</span>
+          <span className="text-[var(--cream)] truncate max-w-[200px]">{product.name}</span>
+        </nav>
 
-      <SimilarProducts
-        productId={product.id}
-        family={product.family}
-        brand={product.brand}
-      />
+        {/* Main: gallery + info */}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          {/* Gallery sticky */}
+          <ProductGallery
+            images={images}
+            productName={product.name}
+            brand={product.brand}
+          />
+
+          {/* Info */}
+          <div>
+            {/* Eyebrow: brand */}
+            <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--gold)] mb-4">
+              {product.brand}
+            </p>
+
+            {/* Title */}
+            <h1 className="font-serif text-4xl sm:text-5xl font-light text-[var(--cream)] leading-[1.05] mb-6">
+              {product.name}
+            </h1>
+
+            {/* Attribute chips */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {product.gender && (
+                <span className="text-[9px] uppercase tracking-[0.15em] text-[var(--gold)] border border-[var(--gold-border)] px-3 py-1">
+                  {genderLabel[product.gender] || product.gender}
+                </span>
+              )}
+              {volume && (
+                <span className="text-[9px] uppercase tracking-[0.15em] text-[var(--gold)] border border-[var(--gold-border)] px-3 py-1">
+                  {volume}
+                </span>
+              )}
+              {product.family && (
+                <span className="text-[9px] uppercase tracking-[0.15em] text-[var(--gold)] border border-[var(--gold-border)] px-3 py-1 capitalize">
+                  {product.family}
+                </span>
+              )}
+            </div>
+
+            {/* Editorial description */}
+            <p className="font-serif italic text-base text-[var(--muted)] leading-relaxed mb-10 border-l border-[var(--gold-border)] pl-5">
+              {description}
+            </p>
+
+            {/* Price + actions + trust */}
+            <ProductActions product={product} />
+
+            {/* Scent pyramid */}
+            <ScentPyramid notes={notes} />
+          </div>
+        </div>
+
+        {/* Related products */}
+        <SimilarProducts
+          productId={product.id}
+          family={product.family}
+          brand={product.brand}
+          gender={product.gender}
+        />
+      </div>
     </div>
   );
 }
