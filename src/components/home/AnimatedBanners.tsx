@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { resolveImageUrl } from "@/lib/image-url";
+import { resolveImageUrl, getBrandLifestyleImage } from "@/lib/image-url";
 import type { Product, ProductImage } from "@prisma/client";
 
 type ProductWithImages = Product & { images?: ProductImage[] };
@@ -27,12 +27,14 @@ export function AnimatedBanners({ menProducts, womenProducts }: AnimatedBannersP
           label="Para él · Esta semana"
           href="/catalogo?genero=masculine"
           bg="#0D0D0D"
+          lifestyleUrl={getBrandLifestyleImage("Armaf", 0)}
         />
         <BannerCard
           products={womenProducts}
           label="Para ella · Esta semana"
           href="/catalogo?genero=feminine"
           bg="#0A0A0A"
+          lifestyleUrl={getBrandLifestyleImage("Carolina Herrera", 0)}
         />
       </div>
     </section>
@@ -44,11 +46,13 @@ function BannerCard({
   label,
   href,
   bg,
+  lifestyleUrl,
 }: {
   products: ProductWithImages[];
   label: string;
   href: string;
   bg: string;
+  lifestyleUrl?: string | null;
 }) {
   if (products.length === 0) {
     return (
@@ -72,6 +76,23 @@ function BannerCard({
       className="group relative block h-[280px] md:h-[320px] overflow-hidden transition-colors duration-500"
       style={{ backgroundColor: bg }}
     >
+      {/* Lifestyle fullbleed background */}
+      {lifestyleUrl && (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={lifestyleUrl}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ backgroundColor: "rgba(13,13,13,0.6)" }}
+          />
+        </>
+      )}
+
       {/* Three stacked fanning images */}
       <div className="absolute inset-0 flex items-center justify-center">
         {/* Left back */}

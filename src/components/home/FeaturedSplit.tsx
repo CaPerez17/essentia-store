@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { resolveImageUrl } from "@/lib/image-url";
+import { resolveImageUrl, getBrandLifestyleImage } from "@/lib/image-url";
 import { generateDescription } from "@/lib/scent-notes";
 import { FadeIn } from "@/components/ui/FadeIn";
 import type { Product, ProductImage } from "@prisma/client";
@@ -25,11 +25,13 @@ const fmt = (n: number) =>
 export function FeaturedSplit({ product }: FeaturedSplitProps) {
   if (!product) return null;
 
-  // Prefer the last image (highest position = lifestyle); fallback to first
+  // Prefer brand lifestyle editorial (position 1); fallback to product last image
   const imgs = product.images ?? [];
   const imgKey =
     imgs.length > 1 ? imgs[imgs.length - 1]?.key : imgs[0]?.key;
-  const imageUrl = imgKey ? resolveImageUrl(imgKey) : null;
+  const productImageUrl = imgKey ? resolveImageUrl(imgKey) : null;
+  const lifestyleUrl = getBrandLifestyleImage(product.brand, 1);
+  const imageUrl = lifestyleUrl ?? productImageUrl;
 
   const description =
     product.description ||
