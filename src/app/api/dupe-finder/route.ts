@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { callClaude, stripJsonFence } from "@/lib/claude";
+import { callAI, stripJsonFence } from "@/lib/ai";
 import { resolveImageUrl } from "@/lib/image-url";
 
 export const dynamic = "force-dynamic";
@@ -87,9 +87,14 @@ export async function POST(request: Request) {
 
     let aiText: string;
     try {
-      aiText = await callClaude({ system, user: userPrompt, maxTokens: 1200 });
+      aiText = await callAI({
+        system,
+        user: userPrompt,
+        maxTokens: 1200,
+        jsonMode: true,
+      });
     } catch (err) {
-      console.error("[dupe-finder] Claude error:", err);
+      console.error("[dupe-finder] OpenAI error:", err);
       return NextResponse.json(
         { error: "No pudimos procesar la búsqueda. Intenta de nuevo." },
         { status: 502 },

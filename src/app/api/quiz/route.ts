@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { callClaude, stripJsonFence } from "@/lib/claude";
+import { callAI, stripJsonFence } from "@/lib/ai";
 import { resolveImageUrl } from "@/lib/image-url";
 import type { Prisma } from "@prisma/client";
 
@@ -141,13 +141,14 @@ export async function POST(request: Request) {
 
     let aiText: string;
     try {
-      aiText = await callClaude({
+      aiText = await callAI({
         system,
         user: userPrompt,
         maxTokens: 1200,
+        jsonMode: true,
       });
     } catch (err) {
-      console.error("[quiz] Claude error:", err);
+      console.error("[quiz] OpenAI error:", err);
       return NextResponse.json(
         { error: "No pudimos procesar tu quiz. Intenta de nuevo." },
         { status: 502 },
