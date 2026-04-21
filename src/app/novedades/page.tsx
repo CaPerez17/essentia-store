@@ -49,13 +49,13 @@ export default async function NovedadesPage({
       where: { ...where, isNew: true },
       orderBy: { createdAt: "desc" },
       take: 20,
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
     }),
     prisma.product.findMany({
       where,
       orderBy: { createdAt: "desc" },
       take: 20,
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
     }),
     prisma.product.count(),
   ]);
