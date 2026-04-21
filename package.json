@@ -24,6 +24,7 @@
     "images:sync": "npx tsx scripts/downloadAndUploadImages.ts",
     "extract:pdf": "python3 scripts/extract_pdf.py data/PRECIOS_2026.pdf",
     "import:pdf": "npx tsx scripts/importFromPDF.ts",
+    "disf:download": "python3 scripts/downloadDisfraganciasImages.py",
     "test": "vitest run",
     "test:watch": "vitest"
   },
