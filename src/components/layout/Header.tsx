@@ -60,14 +60,64 @@ export function Header() {
             <div className="flex items-center gap-6">
               <button
                 type="button"
-                onClick={() => setNavOpen(true)}
-                aria-label="Abrir menú"
-                className={`flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] ${linkColor} transition-colors duration-300`}
+                onClick={() => setNavOpen((v) => !v)}
+                aria-label={navOpen ? "Cerrar menú" : "Abrir menú"}
+                aria-expanded={navOpen}
+                className={`flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] ${linkColor} transition-colors duration-300`}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M3 6h18M3 12h18M3 18h18" strokeLinecap="round" />
-                </svg>
-                <span className="hidden sm:inline">Menú</span>
+                {/* Animated hamburger ↔ X */}
+                <span
+                  className="relative inline-block"
+                  style={{ width: 18, height: 14 }}
+                  aria-hidden="true"
+                >
+                  <span
+                    className="absolute left-0 right-0 h-[1.5px] bg-current"
+                    style={{
+                      top: navOpen ? "50%" : "2px",
+                      transform: navOpen
+                        ? "translateY(-50%) rotate(45deg)"
+                        : "translateY(0) rotate(0)",
+                      transition: "top 0.3s ease, transform 0.3s ease",
+                    }}
+                  />
+                  <span
+                    className="absolute left-0 right-0 h-[1.5px] bg-current top-1/2 -translate-y-1/2"
+                    style={{
+                      opacity: navOpen ? 0 : 1,
+                      transition: "opacity 0.2s ease",
+                    }}
+                  />
+                  <span
+                    className="absolute left-0 right-0 h-[1.5px] bg-current"
+                    style={{
+                      bottom: navOpen ? "50%" : "2px",
+                      transform: navOpen
+                        ? "translateY(50%) rotate(-45deg)"
+                        : "translateY(0) rotate(0)",
+                      transition: "bottom 0.3s ease, transform 0.3s ease",
+                    }}
+                  />
+                </span>
+                <span className="hidden sm:inline relative">
+                  <span
+                    style={{
+                      opacity: navOpen ? 0 : 1,
+                      transition: "opacity 0.2s ease",
+                    }}
+                  >
+                    Menú
+                  </span>
+                  <span
+                    className="absolute inset-0"
+                    style={{
+                      opacity: navOpen ? 1 : 0,
+                      transition: "opacity 0.2s ease",
+                    }}
+                  >
+                    Cerrar
+                  </span>
+                </span>
               </button>
 
               <Link
