@@ -28,6 +28,7 @@
     "images:enrich": "python3 scripts/enrichProductImages.py",
     "images:sync-db": "python3 scripts/syncS3ImagesToDB.py",
     "lifestyle:download": "python3 scripts/downloadLifestyleImages.py",
+    "lifestyle:upload": "python3 scripts/uploadLifestyleToS3.py",
     "test": "vitest run",
     "test:watch": "vitest"
   },

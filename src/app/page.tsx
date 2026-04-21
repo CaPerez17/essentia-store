@@ -12,7 +12,7 @@ import { CategoriesGrid } from "@/components/home/CategoriesGrid";
 import { DupesGuideBanner } from "@/components/home/DupesGuideBanner";
 import { AnimatedBanners } from "@/components/home/AnimatedBanners";
 import { FeaturedSplit } from "@/components/home/FeaturedSplit";
-import { resolveImageUrl } from "@/lib/image-url";
+import { resolveImageUrl, getBrandLifestyleImage } from "@/lib/image-url";
 
 const ARABIC_BRANDS = [
   "Afnan",
@@ -177,7 +177,8 @@ export default async function HomePage() {
   // Build hero slides from fetched products
   const slides: HeroSlide[] = [];
 
-  // Slide 0: promo banner (always first, uses best-selling product image fullbleed)
+  // Slide 0: promo banner (always first, lifestyle image fullbleed)
+  const promoLifestyle = getBrandLifestyleImage("Armaf", 1);
   const promoImageSource = heroOffer ?? heroArabCheap ?? heroNicho;
   const promoImgKey =
     promoImageSource?.images && promoImageSource.images.length > 0
@@ -194,7 +195,7 @@ export default async function HomePage() {
     ctaHref: "/catalogo?oferta=true",
     secondaryCtaText: "Código ESSENTIA10",
     secondaryCtaHref: "/catalogo",
-    imageUrl: promoImgKey ? resolveImageUrl(promoImgKey) : null,
+    imageUrl: promoLifestyle ?? (promoImgKey ? resolveImageUrl(promoImgKey) : null),
     brand: "Essentia",
     productName: "Ofertas de la semana",
     bg: "#0D0D0D",
@@ -220,6 +221,7 @@ export default async function HomePage() {
       secondaryCtaText: "Catálogo completo",
       secondaryCtaHref: "/catalogo",
       imageUrl: imgKey ? resolveImageUrl(imgKey) : null,
+      backgroundTextureUrl: getBrandLifestyleImage(heroArabCheap.brand, 0),
       brand: heroArabCheap.brand,
       productName: heroArabCheap.name,
       bg: "#251508",
@@ -241,6 +243,7 @@ export default async function HomePage() {
       secondaryCtaText: "Código: ESSENTIA10",
       secondaryCtaHref: "/catalogo",
       imageUrl: imgKey ? resolveImageUrl(imgKey) : null,
+      backgroundTextureUrl: getBrandLifestyleImage(heroOffer.brand, 0),
       brand: heroOffer.brand,
       productName: heroOffer.name,
       bg: "#1a0a0a",
@@ -260,6 +263,7 @@ export default async function HomePage() {
       secondaryCtaText: "Quiz olfativo →",
       secondaryCtaHref: "/quiz",
       imageUrl: imgKey ? resolveImageUrl(imgKey) : null,
+      backgroundTextureUrl: getBrandLifestyleImage(heroNicho.brand, 0),
       brand: heroNicho.brand,
       productName: heroNicho.name,
       bg: "#0D0D0D",

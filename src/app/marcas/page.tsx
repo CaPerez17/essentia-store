@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { resolveImageUrl } from "@/lib/image-url";
+import { resolveImageUrl, getBrandLifestyleImage } from "@/lib/image-url";
 import { categorizeBrand, brandSlug } from "@/lib/brands";
 import { BrandsClient, type BrandCard } from "./BrandsClient";
 
@@ -54,9 +54,12 @@ export default async function BrandsPage() {
     count: s._count.brand,
     minPrice: s._min.price ?? 0,
     maxPrice: s._max.price ?? 0,
-    heroImage: heroByBrand.has(s.brand)
-      ? resolveImageUrl(heroByBrand.get(s.brand)!)
-      : null,
+    // Prefer lifestyle banner (editorial) over product image
+    heroImage:
+      getBrandLifestyleImage(s.brand, 0) ??
+      (heroByBrand.has(s.brand)
+        ? resolveImageUrl(heroByBrand.get(s.brand)!)
+        : null),
   }));
 
   const totalBrands = brands.length;

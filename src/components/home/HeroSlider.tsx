@@ -14,6 +14,8 @@ export interface HeroSlide {
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
   imageUrl: string | null;
+  /** Optional lifestyle texture image, rendered behind main image at low opacity */
+  backgroundTextureUrl?: string | null;
   brand: string;
   productName: string;
   bg: string;
@@ -138,6 +140,19 @@ export function HeroSlider({
             }}
             aria-hidden={!isActive}
           >
+            {/* Lifestyle texture (behind main image, low opacity ambient) */}
+            {slide.backgroundTextureUrl && (
+              <div className="absolute inset-0 pointer-events-none" aria-hidden>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={slide.backgroundTextureUrl}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  style={{ opacity: 0.15 }}
+                />
+              </div>
+            )}
+
             {/* Fullbleed image with Ken Burns on active */}
             {slide.imageUrl && (
               <div ref={isActive ? imageRef : null} className="absolute inset-0">
