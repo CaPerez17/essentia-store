@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { resolveImageUrl } from "@/lib/image-url";
+import { brandSlug } from "@/lib/brands";
 
 interface NavOverlayProps {
   open: boolean;
@@ -20,9 +21,11 @@ interface NavProduct {
 
 const MENU_ITEMS = [
   { label: "Catálogo", href: "/catalogo", sub: "Todas las fragancias" },
+  { label: "Marcas", href: "/marcas", sub: "151 marcas →" },
   { label: "Novedades", href: "/novedades", sub: "Últimos lanzamientos" },
+  { label: "Dupe Finder ✨", href: "/dupe-finder", sub: "IA · Encuentra tu alternativa" },
+  { label: "Quiz olfativo", href: "/quiz", sub: "Tu fragancia ideal en 3 min" },
   { label: "Wishlist", href: "/wishlist", sub: "Tus favoritos" },
-  { label: "Carrito", href: "/carrito", sub: "Revisa tu selección" },
 ];
 
 const POPULAR_BRANDS = [
@@ -186,7 +189,7 @@ export function NavOverlay({ open, onClose }: NavOverlayProps) {
               {POPULAR_BRANDS.map((b) => (
                 <Link
                   key={b}
-                  href={`/catalogo?marca=${encodeURIComponent(b)}`}
+                  href={`/marcas/${brandSlug(b)}`}
                   onClick={onClose}
                   className="px-3 py-1.5 text-[10px] uppercase tracking-[0.15em] text-[var(--muted)] border border-[var(--gold-border)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors duration-200"
                 >

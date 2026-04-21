@@ -197,6 +197,12 @@ html.cursor-none * {
   50% { opacity: 1; transform: scale(1); }
 }
 
+/* ═══ Scarcity pulse (PDP stock indicator) ═══ */
+@keyframes scarcity-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 currentColor; }
+  50%      { opacity: 0.7; transform: scale(1.25); box-shadow: 0 0 0 4px currentColor; box-shadow-opacity: 0; }
+}
+
 /* ═══ Skeleton shimmer ═══ */
 @keyframes shimmer {
   0% { background-position: -200px 0; }

@@ -2,6 +2,7 @@
 
 import { AddToCartButton } from "@/components/ui/AddToCartButton";
 import { WishlistButton } from "@/components/ui/WishlistButton";
+import { ScarcityBar } from "@/components/product/ScarcityBar";
 import { getProductFirstImageUrl, type ProductWithImages } from "@/lib/product-images";
 
 interface ProductActionsProps {
@@ -42,14 +43,8 @@ export function ProductActions({ product }: ProductActionsProps) {
         </p>
       </div>
 
-      {/* Stock */}
-      <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--muted)]">
-        {product.stock > 0 ? (
-          <span className="text-[var(--gold)]/80">✓ En stock · {product.stock} disponibles</span>
-        ) : (
-          <span className="text-red-400/70">Agotado</span>
-        )}
-      </p>
+      {/* Stock / scarcity */}
+      <ScarcityBar stock={product.stock} />
 
       {/* Buttons */}
       <div className="flex gap-3 pt-2">

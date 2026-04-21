@@ -87,7 +87,7 @@ export function Header() {
                 Catálogo
               </Link>
               <Link
-                href="/catalogo?ordenar=marca"
+                href="/marcas"
                 className={`nav-link hidden md:inline text-[11px] uppercase tracking-[0.18em] ${linkColor}`}
               >
                 Marcas
