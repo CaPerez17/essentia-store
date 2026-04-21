@@ -41,7 +41,6 @@ export default async function HomePage() {
     maleProduct,
     femaleProduct,
     unisexProduct,
-    totalProducts,
     brandsStats,
     topBrandsMarquee,
   ] = await Promise.all([
@@ -119,9 +118,6 @@ export default async function HomePage() {
       include: { images: true },
       orderBy: { featured: "desc" },
     }),
-
-    // Stats
-    prisma.product.count(),
 
     // Brands stats (for section 8)
     prisma.product.groupBy({
