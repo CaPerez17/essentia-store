@@ -7,6 +7,7 @@ import { OffersCountdown } from "@/components/ui/OffersCountdown";
 import { Newsletter } from "@/components/ui/Newsletter";
 import { HeroSlider, type HeroSlide } from "@/components/home/HeroSlider";
 import { BrandsMarquee } from "@/components/home/BrandsMarquee";
+import { AdvisorShowroom } from "@/components/home/AdvisorShowroom";
 import { CategoriesGrid } from "@/components/home/CategoriesGrid";
 import { DupesGuideBanner } from "@/components/home/DupesGuideBanner";
 import { resolveImageUrl } from "@/lib/image-url";
@@ -228,7 +229,10 @@ export default async function HomePage() {
       {/* ═══ 2. BRANDS MARQUEE ═══ */}
       <BrandsMarquee brands={topBrandNames} />
 
-      {/* ═══ 3. ÁRABES ═══ */}
+      {/* ═══ 3. ADVISOR SHOWROOM — virtual boutique entry ═══ */}
+      <AdvisorShowroom />
+
+      {/* ═══ 4. ÁRABES ═══ */}
       {arabicProducts.length > 0 && (
         <section className="bg-[#F5F0E8] py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
