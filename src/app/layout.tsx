@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { CartToast } from "@/components/ui/CartToast";
 import { MiniCart } from "@/components/ui/MiniCart";
+import { WelcomePopup } from "@/components/ui/WelcomePopup";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 
@@ -66,6 +68,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className="min-h-screen flex flex-col bg-[#0c0b09] text-[#e2d9c8]">
+        <AnnouncementBar />
         <Header />
         <main className="flex-1">
           <PageTransition>{children}</PageTransition>
@@ -73,6 +76,7 @@ export default function RootLayout({
         <Footer />
         <CartToast />
         <MiniCart />
+        <WelcomePopup />
         <CustomCursor />
       </body>
     </html>

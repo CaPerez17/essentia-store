@@ -44,5 +44,7 @@ next-env.d.ts
 
 # data pipeline artifacts (large files)
 data/essentia_images/
+data/disf_images/
+data/disf_catalog.json
 data/PRECIOS_2026.pdf
 data/*.pdf
