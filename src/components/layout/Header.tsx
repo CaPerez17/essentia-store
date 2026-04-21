@@ -1,17 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useCartStore } from "@/stores/cart-store";
+import { useMiniCartStore } from "@/stores/mini-cart-store";
 import { useEffect, useState } from "react";
 import { getOrCreateGuestId } from "@/lib/guest-id";
 import { NavOverlay } from "./NavOverlay";
 import { SearchBar } from "./SearchBar";
 
 export function Header() {
+  const router = useRouter();
   const itemCount = useCartStore((s) => s.getItemCount());
+  const openMiniCart = useMiniCartStore((s) => s.open);
   const [navOpen, setNavOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const handleCartClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (itemCount > 0) {
+      openMiniCart();
+    } else {
+      router.push("/carrito");
+    }
+  };
 
   useEffect(() => {
     getOrCreateGuestId();
@@ -86,6 +99,12 @@ export function Header() {
                 Novedades
               </Link>
               <Link
+                href="/dupe-finder"
+                className={`nav-link hidden md:inline text-[11px] uppercase tracking-[0.18em] ${linkColor}`}
+              >
+                Dupe Finder ✨
+              </Link>
+              <Link
                 href="/catalogo?oferta=true"
                 className={`nav-link hidden md:inline text-[11px] uppercase tracking-[0.18em] ${linkColor}`}
               >
@@ -116,9 +135,10 @@ export function Header() {
                 </svg>
               </Link>
 
-              {/* Cart icon + badge */}
+              {/* Cart icon + badge (opens MiniCart if items, else navigates) */}
               <Link
                 href="/carrito"
+                onClick={handleCartClick}
                 aria-label="Carrito"
                 className={`relative ${linkColor} transition-colors duration-300`}
               >

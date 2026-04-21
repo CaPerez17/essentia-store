@@ -85,6 +85,16 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/dupe-finder" className="text-xs text-[#6B6B6B] hover:text-[#C9A96E] transition-colors">
+                  Dupe Finder ✨
+                </Link>
+              </li>
+              <li>
+                <Link href="/quiz" className="text-xs text-[#6B6B6B] hover:text-[#C9A96E] transition-colors">
+                  Quiz olfativo
+                </Link>
+              </li>
+              <li>
                 <Link href="/wishlist" className="text-xs text-[#6B6B6B] hover:text-[#C9A96E] transition-colors">
                   Wishlist
                 </Link>

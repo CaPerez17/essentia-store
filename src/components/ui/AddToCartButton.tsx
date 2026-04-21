@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useCartStore, type CartItem } from "@/stores/cart-store";
 import { useToastStore } from "@/stores/toast-store";
+import { useMiniCartStore } from "@/stores/mini-cart-store";
 import { getProductFirstImageUrl, type ProductWithImages } from "@/lib/product-images";
 
 interface AddToCartButtonProps {
@@ -23,6 +24,7 @@ export function AddToCartButton({
 }: AddToCartButtonProps) {
   const addItem = useCartStore((s) => s.addItem);
   const showToast = useToastStore((s) => s.show);
+  const openMiniCart = useMiniCartStore((s) => s.open);
   const [added, setAdded] = useState(false);
 
   const imageUrl = getProductFirstImageUrl(product);
@@ -44,6 +46,8 @@ export function AddToCartButton({
       productBrand: product.brand,
       productImage: imageUrl ?? undefined,
     });
+    // Open mini cart drawer with slight delay so user sees toast + transition
+    setTimeout(() => openMiniCart(), 150);
     setTimeout(() => setAdded(false), 2000);
   };
 
