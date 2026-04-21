@@ -70,7 +70,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/catalogo?ordenar=marca" className="text-xs text-[#6B6B6B] hover:text-[#C9A96E] transition-colors">
+                <Link href="/marcas" className="text-xs text-[#6B6B6B] hover:text-[#C9A96E] transition-colors">
                   Marcas
                 </Link>
               </li>
