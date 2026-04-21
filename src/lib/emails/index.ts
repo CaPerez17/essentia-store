@@ -8,7 +8,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // Until then, falls back to Resend's default sandbox sender.
 const FROM = process.env.EMAIL_FROM || "ESSENTIA <onboarding@resend.dev>";
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "devcamper97@gmail.com";
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://essentia-store.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.essentiaperfumes.co";
 
 const fmt = (n: number) =>
   new Intl.NumberFormat("es-CO", {
@@ -127,7 +127,7 @@ export async function sendOrderConfirmation(orderId: string) {
           <!-- Footer -->
           <tr><td style="padding:40px 20px 20px 20px;text-align:center;border-top:1px solid rgba(201,169,110,0.1);">
             <div style="color:#7a7060;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Perfumería de autor · Colombia</div>
-            <a href="${BASE_URL}" style="color:#c9a96e;text-decoration:none;font-size:11px;letter-spacing:2px;">essentia-store.vercel.app</a>
+            <a href="${BASE_URL}" style="color:#c9a96e;text-decoration:none;font-size:11px;letter-spacing:2px;">essentiaperfumes.co</a>
           </td></tr>
 
         </table>

@@ -98,7 +98,7 @@ Abre [http://localhost:3000](http://localhost:3000).
 3. **Env vars** — Configura en Vercel: `DATABASE_URL`, `DATABASE_DIRECT_URL`, `WOMPI_*`, `NEXT_PUBLIC_BASE_URL`
 4. **Deploy** — Vercel ejecuta `prisma migrate deploy && next build` automáticamente
 
-**Importante:** `NEXT_PUBLIC_BASE_URL` debe ser la URL de producción de Vercel (ej. `https://essentia-store.vercel.app`) o tu dominio custom.
+**Importante:** `NEXT_PUBLIC_BASE_URL` debe ser la URL de producción (ej. `https://www.essentiaperfumes.co`).
 
 **Webhook Wompi:** `https://<tu-dominio>/api/webhooks/wompi` — configúralo en el Dashboard de Wompi (URL de eventos).
 

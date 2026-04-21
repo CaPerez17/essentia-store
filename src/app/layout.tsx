@@ -6,7 +6,7 @@ import { CartToast } from "@/components/ui/CartToast";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://essentia-store.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.essentiaperfumes.co";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
