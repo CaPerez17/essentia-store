@@ -55,13 +55,13 @@ export default async function HomePage() {
         brand: { in: ARABIC_BRANDS },
         price: { lt: 300000 },
       },
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
       orderBy: { price: "asc" },
     }),
     // Hero slide 2: onSale
     prisma.product.findFirst({
       where: { onSale: true, images: { some: {} } },
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
       orderBy: { price: "asc" },
     }),
     // Hero slide 3: niche expensive
@@ -71,7 +71,7 @@ export default async function HomePage() {
         price: { gte: 800000 },
         NOT: { brand: { in: ARABIC_BRANDS } },
       },
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
       orderBy: { price: "desc" },
     }),
 
@@ -83,13 +83,13 @@ export default async function HomePage() {
       },
       orderBy: { price: "asc" },
       take: 8,
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
     }),
 
     // Offers section
     prisma.product.findMany({
       where: { onSale: true, images: { some: {} } },
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
       take: 6,
       orderBy: { price: "asc" },
     }),
@@ -103,23 +103,23 @@ export default async function HomePage() {
       },
       orderBy: { price: "desc" },
       take: 4,
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
     }),
 
     // 1 product per gender (for CategoriesGrid too)
     prisma.product.findFirst({
       where: { gender: "masculine", images: { some: {} } },
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
       orderBy: { featured: "desc" },
     }),
     prisma.product.findFirst({
       where: { gender: "feminine", images: { some: {} } },
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
       orderBy: { featured: "desc" },
     }),
     prisma.product.findFirst({
       where: { gender: "unisex", images: { some: {} } },
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
       orderBy: { featured: "desc" },
     }),
 
@@ -144,7 +144,7 @@ export default async function HomePage() {
       where: { gender: "masculine", images: { some: {} } },
       orderBy: { price: "desc" },
       take: 3,
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
     }),
 
     // Women banner — 3 expensive products with images
@@ -152,7 +152,7 @@ export default async function HomePage() {
       where: { gender: "feminine", images: { some: {} } },
       orderBy: { price: "desc" },
       take: 3,
-      include: { images: true },
+      include: { images: { orderBy: { position: "asc" } } },
     }),
   ]);
 
