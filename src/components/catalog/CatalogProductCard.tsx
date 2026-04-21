@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { WishlistButton } from "@/components/ui/WishlistButton";
 import { AddToCartButton } from "@/components/ui/AddToCartButton";
+import { QuickViewButton } from "@/components/ui/QuickViewButton";
 import { getProductFirstImageUrl, type ProductWithImages } from "@/lib/product-images";
+import { getFamilyBackgroundLight } from "@/lib/scent-notes";
 
 const fmt = (n: number) =>
   new Intl.NumberFormat("es-CO", {
@@ -55,10 +57,15 @@ export function CatalogProductCard({ product }: CatalogProductCardProps) {
   const hasDiscount =
     product.compareAt != null && product.compareAt > product.price;
 
+  const familyBg = getFamilyBackgroundLight(product.tags, product.gender);
+
   return (
     <article className="pcard group bg-white border border-[#E5E5E5] hover:border-[#C9A96E] transition-colors duration-300 flex flex-col">
       {/* Image area */}
-      <div className="relative aspect-[3/4] bg-[#F8F5EF] overflow-hidden">
+      <div
+        className="relative aspect-[3/4] overflow-hidden transition-colors duration-500"
+        style={{ backgroundColor: familyBg }}
+      >
         <Link href={`/p/${product.slug}`} className="block h-full">
           {imageUrl ? (
             <img
@@ -86,6 +93,13 @@ export function CatalogProductCard({ product }: CatalogProductCardProps) {
         {/* Wishlist always-visible (top-right) */}
         <div className="absolute top-3 right-3">
           <WishlistButton item={wishlistItem} size="sm" />
+        </div>
+
+        {/* Quick view button (centered, appears on hover) */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <div className="pointer-events-auto">
+            <QuickViewButton slug={product.slug} />
+          </div>
         </div>
 
         {/* Hover action bar (slides up from bottom) */}

@@ -10,6 +10,7 @@ import { BrandsMarquee } from "@/components/home/BrandsMarquee";
 import { AdvisorShowroom } from "@/components/home/AdvisorShowroom";
 import { CategoriesGrid } from "@/components/home/CategoriesGrid";
 import { DupesGuideBanner } from "@/components/home/DupesGuideBanner";
+import { AnimatedBanners } from "@/components/home/AnimatedBanners";
 import { resolveImageUrl } from "@/lib/image-url";
 
 const ARABIC_BRANDS = [
@@ -44,6 +45,8 @@ export default async function HomePage() {
     unisexProduct,
     brandsStats,
     topBrandsMarquee,
+    menBannerProducts,
+    womenBannerProducts,
   ] = await Promise.all([
     // Hero slide 1: arabic cheap
     prisma.product.findFirst({
@@ -134,6 +137,22 @@ export default async function HomePage() {
       _count: { brand: true },
       orderBy: { _count: { brand: "desc" } },
       take: 10,
+    }),
+
+    // Men banner — 3 expensive products with images
+    prisma.product.findMany({
+      where: { gender: "masculine", images: { some: {} } },
+      orderBy: { price: "desc" },
+      take: 3,
+      include: { images: true },
+    }),
+
+    // Women banner — 3 expensive products with images
+    prisma.product.findMany({
+      where: { gender: "feminine", images: { some: {} } },
+      orderBy: { price: "desc" },
+      take: 3,
+      include: { images: true },
     }),
   ]);
 
@@ -275,7 +294,13 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* ═══ 4. OFERTAS ═══ */}
+      {/* ═══ 4.5 ANIMATED BANNERS (Para él / Para ella) ═══ */}
+      <AnimatedBanners
+        menProducts={menBannerProducts}
+        womenProducts={womenBannerProducts}
+      />
+
+      {/* ═══ 5. OFERTAS ═══ */}
       {offerProducts.length > 0 && (
         <section className="bg-[#0D0D0D] py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

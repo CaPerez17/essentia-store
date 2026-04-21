@@ -47,7 +47,7 @@ export function ProductActions({ product }: ProductActionsProps) {
       <ScarcityBar stock={product.stock} />
 
       {/* Buttons */}
-      <div className="flex gap-3 pt-2">
+      <div className="flex gap-3 pt-2" data-main-add-to-cart>
         <div className="flex-1">
           <AddToCartButton product={product} />
         </div>

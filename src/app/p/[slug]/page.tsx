@@ -5,7 +5,12 @@ import { ProductGallery } from "./ProductGallery";
 import { ProductActions } from "./ProductActions";
 import { SimilarProducts } from "./SimilarProducts";
 import { ScentPyramid } from "./ScentPyramid";
-import { getScentNotes, generateDescription } from "@/lib/scent-notes";
+import { StickyAddToCart } from "@/components/product/StickyAddToCart";
+import {
+  getScentNotes,
+  generateDescription,
+  getFamilyBackgroundLight,
+} from "@/lib/scent-notes";
 
 export default async function ProductPage({
   params,
@@ -75,6 +80,7 @@ export default async function ProductPage({
             images={images}
             productName={product.name}
             brand={product.brand}
+            familyBg={getFamilyBackgroundLight(product.tags, product.gender)}
           />
 
           {/* Info */}
@@ -129,6 +135,9 @@ export default async function ProductPage({
           gender={product.gender}
         />
       </div>
+
+      {/* Sticky add-to-cart (mobile only) */}
+      <StickyAddToCart product={product} />
     </div>
   );
 }
