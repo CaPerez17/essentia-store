@@ -9,6 +9,8 @@ interface AddToCartButtonProps {
   product: ProductWithImages;
   quantity?: number;
   variant?: "default" | "compact";
+  /** "dark" (default) for dark backgrounds; "light" for white-card contexts (arabes, catalogo). */
+  tone?: "dark" | "light";
   className?: string;
 }
 
@@ -16,6 +18,7 @@ export function AddToCartButton({
   product,
   quantity = 1,
   variant = "default",
+  tone = "dark",
   className = "",
 }: AddToCartButtonProps) {
   const addItem = useCartStore((s) => s.addItem);
@@ -46,11 +49,21 @@ export function AddToCartButton({
 
   const disabled = product.stock < 1;
 
-  const stateClasses = disabled
-    ? "border-[var(--muted)]/30 text-[var(--muted)]/50 cursor-not-allowed"
-    : added
-      ? "border-[var(--gold)] bg-[var(--gold)] text-[var(--dark)]"
-      : "border-[var(--gold-border)] text-[var(--gold)] bg-transparent hover:border-[var(--gold)] hover:bg-[var(--gold)]/10";
+  // Color set
+  const stateClasses = (() => {
+    if (disabled) {
+      return tone === "light"
+        ? "border-[#E5E5E5] text-[#6B6B6B]/50 cursor-not-allowed"
+        : "border-[var(--muted)]/30 text-[var(--muted)]/50 cursor-not-allowed";
+    }
+    if (added) {
+      return "border-[#C9A96E] bg-[#C9A96E] text-[#0D0D0D]";
+    }
+    if (tone === "light") {
+      return "border-[#0D0D0D] bg-[#0D0D0D] text-white hover:bg-[#C9A96E] hover:border-[#C9A96E] hover:text-[#0D0D0D]";
+    }
+    return "border-[var(--gold-border)] text-[#C9A96E] bg-transparent hover:border-[#C9A96E] hover:bg-[#C9A96E]/10";
+  })();
 
   if (variant === "compact") {
     return (
