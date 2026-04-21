@@ -46,5 +46,7 @@ next-env.d.ts
 data/essentia_images/
 data/disf_images/
 data/disf_catalog.json
+data/lifestyle/
+data/lifestyle_index.json
 data/PRECIOS_2026.pdf
 data/*.pdf

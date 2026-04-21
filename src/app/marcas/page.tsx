@@ -19,7 +19,8 @@ export default async function BrandsPage() {
     orderBy: { _count: { brand: "desc" } },
   });
 
-  // Fetch one hero product per brand (first product with an image, cheapest)
+  // Fetch hero image per brand: prefer products with MORE images,
+  // then take the LAST image (highest position = most likely lifestyle shot).
   const brandNames = stats.map((s) => s.brand);
   const heroProducts = await prisma.product.findMany({
     where: {
@@ -28,17 +29,21 @@ export default async function BrandsPage() {
     },
     select: {
       brand: true,
-      images: { select: { key: true }, orderBy: { position: "asc" }, take: 1 },
-      price: true,
+      images: { select: { key: true, position: true }, orderBy: { position: "desc" } },
     },
-    orderBy: { price: "asc" },
   });
 
-  // Map brand → first image key (from cheapest product with image)
+  // For each brand, pick the product with the MOST images, then its last image
   const heroByBrand = new Map<string, string>();
+  const bestCountByBrand = new Map<string, number>();
   for (const p of heroProducts) {
-    if (!heroByBrand.has(p.brand) && p.images[0]) {
-      heroByBrand.set(p.brand, p.images[0].key);
+    const count = p.images.length;
+    if (count === 0) continue;
+    const currentBest = bestCountByBrand.get(p.brand) ?? 0;
+    if (count > currentBest) {
+      bestCountByBrand.set(p.brand, count);
+      // images are ordered desc, so [0] is the highest position
+      heroByBrand.set(p.brand, p.images[0]!.key);
     }
   }
 

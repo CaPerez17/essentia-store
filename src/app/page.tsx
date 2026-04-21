@@ -11,6 +11,7 @@ import { AdvisorShowroom } from "@/components/home/AdvisorShowroom";
 import { CategoriesGrid } from "@/components/home/CategoriesGrid";
 import { DupesGuideBanner } from "@/components/home/DupesGuideBanner";
 import { AnimatedBanners } from "@/components/home/AnimatedBanners";
+import { FeaturedSplit } from "@/components/home/FeaturedSplit";
 import { resolveImageUrl } from "@/lib/image-url";
 
 const ARABIC_BRANDS = [
@@ -47,6 +48,7 @@ export default async function HomePage() {
     topBrandsMarquee,
     menBannerProducts,
     womenBannerProducts,
+    featuredSplitProduct,
   ] = await Promise.all([
     // Hero slide 1: arabic cheap
     prisma.product.findFirst({
@@ -154,12 +156,59 @@ export default async function HomePage() {
       take: 3,
       include: { images: { orderBy: { position: "asc" } } },
     }),
+
+    // Featured split "Esencia de la semana" — featured product with images,
+    // fallback to most expensive with images
+    (async () => {
+      const feat = await prisma.product.findFirst({
+        where: { featured: true, images: { some: {} } },
+        include: { images: { orderBy: { position: "asc" } } },
+        orderBy: { price: "desc" },
+      });
+      if (feat) return feat;
+      return prisma.product.findFirst({
+        where: { images: { some: {} } },
+        include: { images: { orderBy: { position: "asc" } } },
+        orderBy: { price: "desc" },
+      });
+    })(),
   ]);
 
   // Build hero slides from fetched products
   const slides: HeroSlide[] = [];
+
+  // Slide 0: promo banner (always first, uses best-selling product image fullbleed)
+  const promoImageSource = heroOffer ?? heroArabCheap ?? heroNicho;
+  const promoImgKey =
+    promoImageSource?.images && promoImageSource.images.length > 0
+      ? promoImageSource.images[promoImageSource.images.length - 1]?.key
+      : null;
+  slides.push({
+    kind: "promo",
+    promoBadge: "Oferta especial",
+    eyebrow: "Descuentos escalonados",
+    title: "Compra más.",
+    titleItalic: "Paga menos.",
+    subtitle: "",
+    ctaText: "Ver ofertas →",
+    ctaHref: "/catalogo?oferta=true",
+    secondaryCtaText: "Código ESSENTIA10",
+    secondaryCtaHref: "/catalogo",
+    imageUrl: promoImgKey ? resolveImageUrl(promoImgKey) : null,
+    brand: "Essentia",
+    productName: "Ofertas de la semana",
+    bg: "#0D0D0D",
+    promoTiers: [
+      { color: "#C9A96E", label: "2+", offer: "5% OFF" },
+      { color: "#D97706", label: "3+", offer: "10% OFF" },
+      { color: "#DC2626", label: "5+", offer: "15% OFF" },
+    ],
+  });
+
   if (heroArabCheap) {
-    const imgKey = heroArabCheap.images?.[0]?.key;
+    // Use last image (highest position, most likely lifestyle)
+    const imgs = heroArabCheap.images ?? [];
+    const imgKey = imgs.length > 0 ? imgs[imgs.length - 1]?.key : null;
     slides.push({
       eyebrow: "Perfumería árabe · Los más vendidos",
       title: "Intensidad",
@@ -177,7 +226,8 @@ export default async function HomePage() {
     });
   }
   if (heroOffer) {
-    const imgKey = heroOffer.images?.[0]?.key;
+    const imgs = heroOffer.images ?? [];
+    const imgKey = imgs.length > 0 ? imgs[imgs.length - 1]?.key : null;
     slides.push({
       eyebrow: "Ofertas de la semana · Solo 72 horas",
       title: "10% menos.",
@@ -197,7 +247,8 @@ export default async function HomePage() {
     });
   }
   if (heroNicho) {
-    const imgKey = heroNicho.images?.[0]?.key;
+    const imgs = heroNicho.images ?? [];
+    const imgKey = imgs.length > 0 ? imgs[imgs.length - 1]?.key : null;
     slides.push({
       eyebrow: "Perfumería de nicho · Colección exclusiva",
       title: "Fragancias que",
@@ -325,7 +376,10 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* ═══ 5. DISEÑADOR / NICHO ═══ */}
+      {/* ═══ 5.5 FEATURED SPLIT (Esencia de la semana) ═══ */}
+      <FeaturedSplit product={featuredSplitProduct} />
+
+      {/* ═══ 6. DISEÑADOR / NICHO ═══ */}
       {designerProducts.length >= 4 && (
         <section className="bg-white py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

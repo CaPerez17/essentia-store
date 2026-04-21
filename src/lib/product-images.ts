@@ -35,3 +35,18 @@ export function getProductFirstImageUrl(product: ProductWithImages): string | nu
   const urls = getProductImageUrls(product);
   return urls[0] ?? null;
 }
+
+/**
+ * Returns the first two image URLs (primary + hover) for dual-image cards.
+ * The second URL is null if the product has only one image.
+ */
+export function getProductCardImages(product: ProductWithImages): {
+  primary: string | null;
+  hover: string | null;
+} {
+  const urls = getProductImageUrls(product);
+  return {
+    primary: urls[0] ?? null,
+    hover: urls[1] ?? null,
+  };
+}

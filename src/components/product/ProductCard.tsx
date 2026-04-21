@@ -3,7 +3,11 @@
 import Link from "next/link";
 import { WishlistButton } from "@/components/ui/WishlistButton";
 import { AddToCartButton } from "@/components/ui/AddToCartButton";
-import { getProductFirstImageUrl, type ProductWithImages } from "@/lib/product-images";
+import {
+  getProductFirstImageUrl,
+  getProductCardImages,
+  type ProductWithImages,
+} from "@/lib/product-images";
 
 export type ProductCardVariant = "dark" | "light" | "editorial";
 
@@ -106,16 +110,30 @@ export function ProductCard({
   }
 
   if (variant === "light") {
+    const { primary, hover } = getProductCardImages(product);
     return (
       <article className="pcard group bg-white border border-[#E5E5E5] hover:border-[#C9A96E] transition-colors">
         <div className="relative aspect-[3/4] bg-[#F5F0E8] overflow-hidden">
-          <Link href={`/p/${product.slug}`} className="block h-full">
-            {imageUrl ? (
-              <img
-                src={imageUrl}
-                alt={product.name}
-                className="pcard-img h-full w-full object-cover"
-              />
+          <Link href={`/p/${product.slug}`} className="block h-full relative">
+            {primary ? (
+              <>
+                <img
+                  src={primary}
+                  alt={product.name}
+                  className={`pcard-img absolute inset-0 h-full w-full object-cover transition-opacity duration-400 ${
+                    hover ? "group-hover:opacity-0" : ""
+                  }`}
+                />
+                {hover && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={hover}
+                    alt=""
+                    aria-hidden="true"
+                    className="pcard-img absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+                  />
+                )}
+              </>
             ) : (
               <div className="h-full w-full flex items-center justify-center text-[#6B6B6B] text-xs uppercase tracking-widest">
                 {product.brand}
@@ -157,16 +175,30 @@ export function ProductCard({
   }
 
   // Default: dark variant
+  const { primary, hover } = getProductCardImages(product);
   return (
     <article className="pcard group bg-[#1A1A1A] border border-transparent hover:border-[var(--gold-border)]">
       <div className="relative aspect-[3/4] bg-[#0D0D0D] overflow-hidden">
-        <Link href={`/p/${product.slug}`} className="block h-full">
-          {imageUrl ? (
-            <img
-              src={imageUrl}
-              alt={product.name}
-              className="pcard-img h-full w-full object-cover"
-            />
+        <Link href={`/p/${product.slug}`} className="block h-full relative">
+          {primary ? (
+            <>
+              <img
+                src={primary}
+                alt={product.name}
+                className={`pcard-img absolute inset-0 h-full w-full object-cover transition-opacity duration-400 ${
+                  hover ? "group-hover:opacity-0" : ""
+                }`}
+              />
+              {hover && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={hover}
+                  alt=""
+                  aria-hidden="true"
+                  className="pcard-img absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+                />
+              )}
+            </>
           ) : (
             <div className="h-full w-full flex items-center justify-center text-[#6B6B6B] text-xs uppercase tracking-widest">
               {product.brand}
