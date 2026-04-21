@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { CartToast } from "@/components/ui/CartToast";
 import { MiniCart } from "@/components/ui/MiniCart";
+import { QuickViewDrawer } from "@/components/ui/QuickViewDrawer";
 import { WelcomePopup } from "@/components/ui/WelcomePopup";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { CustomCursor } from "@/components/ui/CustomCursor";
@@ -76,6 +77,7 @@ export default function RootLayout({
         <Footer />
         <CartToast />
         <MiniCart />
+        <QuickViewDrawer />
         <WelcomePopup />
         <CustomCursor />
       </body>

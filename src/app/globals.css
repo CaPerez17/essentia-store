@@ -216,6 +216,18 @@ html.cursor-none * {
 }
 .arrow-nudge { animation: arrow-nudge 2s ease-in-out infinite; }
 
+/* ═══ Hero slide staggered text entrance ═══ */
+@keyframes slide-text-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══ Flip counter (stock digits) ═══ */
+@keyframes flip-in {
+  from { opacity: 0; transform: translateY(100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ═══ Skeleton shimmer ═══ */
 @keyframes shimmer {
   0% { background-position: -200px 0; }

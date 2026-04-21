@@ -25,6 +25,7 @@
     "extract:pdf": "python3 scripts/extract_pdf.py data/PRECIOS_2026.pdf",
     "import:pdf": "npx tsx scripts/importFromPDF.ts",
     "disf:download": "python3 scripts/downloadDisfraganciasImages.py",
+    "images:enrich": "python3 scripts/enrichProductImages.py",
     "test": "vitest run",
     "test:watch": "vitest"
   },
