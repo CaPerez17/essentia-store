@@ -248,7 +248,9 @@ export function CheckoutForm() {
               setAcceptedTerms(e.target.checked);
               if (e.target.checked) {
                 setErrors((prev) => {
-                  const { terms: _t, ...rest } = prev;
+                  if (!prev.terms) return prev;
+                  const rest = { ...prev };
+                  delete rest.terms;
                   return rest;
                 });
               }
