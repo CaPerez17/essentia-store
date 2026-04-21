@@ -187,6 +187,38 @@ html.cursor-none * {
   font-variant-numeric: tabular-nums;
 }
 
+/* ═══ No-scrollbar utility (horizontal chip strips) ═══ */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ═══ Skeleton shimmer ═══ */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+.skeleton {
+  background: #F5F0F0;
+  background-image: linear-gradient(
+    90deg,
+    #F5F0F0 0%,
+    #FAF7F2 50%,
+    #F5F0F0 100%
+  );
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+/* ═══ Product card hover action bar (catalog) ═══ */
+.pcard-actions {
+  transform: translateY(100%);
+  transition: transform 0.3s var(--ease-luxe);
+}
+.pcard:hover .pcard-actions,
+.pcard:focus-within .pcard-actions {
+  transform: translateY(0);
+}
+
 /* ═══ Reduced motion ═══ */
 @media (prefers-reduced-motion: reduce) {
   *,
