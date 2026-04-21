@@ -26,6 +26,7 @@
     "import:pdf": "npx tsx scripts/importFromPDF.ts",
     "disf:download": "python3 scripts/downloadDisfraganciasImages.py",
     "images:enrich": "python3 scripts/enrichProductImages.py",
+    "images:sync-db": "python3 scripts/syncS3ImagesToDB.py",
     "test": "vitest run",
     "test:watch": "vitest"
   },
