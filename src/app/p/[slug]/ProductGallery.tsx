@@ -10,41 +10,65 @@ interface ProductGalleryProps {
 
 export function ProductGallery({ images, productName, brand }: ProductGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const displayImages = images.length > 0 ? images : [null];
+
+  // Real + placeholder slots (up to 4 total)
+  const realImages = images.filter(Boolean);
+  const placeholderCount = Math.max(0, 4 - realImages.length);
+  const allSlots: Array<{ src: string | null; placeholder: boolean }> = [
+    ...realImages.map((src) => ({ src, placeholder: false })),
+    ...Array.from({ length: placeholderCount }, () => ({ src: null, placeholder: true })),
+  ];
+
+  const active = allSlots[activeIndex];
 
   return (
-    <div className="space-y-4">
-      <div className="aspect-[3/4] bg-[var(--bg)] overflow-hidden border border-[var(--border)]">
-        {displayImages[activeIndex] ? (
+    <div className="lg:sticky lg:top-24 self-start space-y-3">
+      {/* Main image */}
+      <div className="aspect-[3/4] bg-[#0f0e0b] border border-[var(--gold-border)] overflow-hidden">
+        {active?.src ? (
           <img
-            src={displayImages[activeIndex]!}
+            src={active.src}
             alt={productName}
             className="h-full w-full object-cover"
           />
         ) : (
-          <div className="h-full w-full flex items-center justify-center bg-[var(--bg)] text-[var(--text-muted)] text-sm">
-            {brand}
+          <div className="h-full w-full flex flex-col items-center justify-center gap-3">
+            <div className="w-16 h-16 border border-[var(--gold-border)] rounded-full flex items-center justify-center">
+              <span className="text-[var(--gold)]/40 text-2xl">📷</span>
+            </div>
+            <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--muted)]/60 text-center px-6">
+              Más fotos próximamente
+            </p>
+            <p className="text-[8px] uppercase tracking-[0.15em] text-[var(--muted)]/40">
+              {brand}
+            </p>
           </div>
         )}
       </div>
-      {images.length > 1 && (
-        <div className="flex gap-2">
-          {images.map((img, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setActiveIndex(i)}
-              className={`h-16 w-16 shrink-0 border transition-colors ${
-                activeIndex === i
-                  ? "border-[var(--accent)]"
-                  : "border-[var(--border)] hover:border-[var(--text-muted)]"
-              }`}
-            >
-              <img src={img} alt="" className="h-full w-full object-cover" />
-            </button>
-          ))}
-        </div>
-      )}
+
+      {/* Thumbnails */}
+      <div className="grid grid-cols-4 gap-2">
+        {allSlots.map((slot, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => setActiveIndex(i)}
+            className={`aspect-square bg-[#0f0e0b] border overflow-hidden transition-colors duration-200 ${
+              activeIndex === i
+                ? "border-[var(--gold)]"
+                : "border-[var(--gold-border)] hover:border-[var(--gold)]/50"
+            }`}
+          >
+            {slot.src ? (
+              <img src={slot.src} alt="" className="h-full w-full object-cover" />
+            ) : (
+              <div className="h-full w-full flex items-center justify-center">
+                <span className="text-[var(--gold)]/20 text-lg">+</span>
+              </div>
+            )}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

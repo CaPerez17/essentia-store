@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { CartToast } from "@/components/ui/CartToast";
+import { PageTransition } from "@/components/ui/PageTransition";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://essentia-store.vercel.app";
 
@@ -63,8 +66,12 @@ export default function RootLayout({
     <html lang="es">
       <body className="min-h-screen flex flex-col bg-[#0c0b09] text-[#e2d9c8]">
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
+        <CartToast />
+        <CustomCursor />
       </body>
     </html>
   );

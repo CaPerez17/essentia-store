@@ -26,14 +26,14 @@ export function ProductCard({ product, showAddToCart = true }: ProductCardProps)
   };
 
   return (
-    <article className="group bg-[var(--dark)] border border-transparent hover:border-[var(--gold-border)] transition-colors duration-300">
+    <article className="pcard group bg-[var(--dark)] border border-transparent hover:border-[var(--gold-border)]">
       <div className="relative aspect-[3/4] bg-[#111009] overflow-hidden">
         <Link href={`/p/${product.slug}`} className="block h-full">
           {imageUrl ? (
             <img
               src={imageUrl}
               alt={product.name}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              className="pcard-img h-full w-full object-cover"
             />
           ) : (
             <div className="h-full w-full flex items-center justify-center text-[var(--muted)] text-xs uppercase tracking-widest">
@@ -55,7 +55,7 @@ export function ProductCard({ product, showAddToCart = true }: ProductCardProps)
           {product.brand}
         </p>
         <Link href={`/p/${product.slug}`} className="block">
-          <h3 className="font-serif text-sm text-[var(--cream)] group-hover:text-[var(--gold)] transition-colors duration-300 mb-2">
+          <h3 className="pcard-title font-serif text-sm text-[var(--cream)] group-hover:text-[var(--gold)] mb-2">
             {product.name}
           </h3>
         </Link>

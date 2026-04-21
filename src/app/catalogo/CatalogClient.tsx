@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ProductCard } from "@/components/product/ProductCard";
 import { FilterDrawer } from "@/components/catalog/FilterDrawer";
 import { FilterChips } from "@/components/catalog/FilterChips";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import {
   parseCatalogParams,
   catalogParamsToSearchParams,
@@ -204,11 +205,18 @@ export function CatalogClient({ filterOptions, totalProducts }: CatalogClientPro
       ) : (
         <>
           <div className="grid grid-cols-2 gap-px sm:grid-cols-3 bg-[rgba(201,169,110,0.06)]">
-            {allItems.map((p) => (
-              <div key={p.id} className="bg-[var(--dark)]">
-                <ProductCard product={p} />
-              </div>
-            ))}
+            {allItems.map((p, idx) => {
+              // Stagger by column (0,1,2 in 3-col grid → 100/200/300ms)
+              const col = idx % 3;
+              const delay = ([100, 200, 300] as const)[col] ?? 100;
+              return (
+                <div key={p.id} className="bg-[var(--dark)]">
+                  <ScrollReveal animation="scale" delay={delay}>
+                    <ProductCard product={p} />
+                  </ScrollReveal>
+                </div>
+              );
+            })}
           </div>
 
           {allItems.length === 0 && (
