@@ -109,62 +109,73 @@ function BrandCardItem({ brand }: { brand: BrandCard }) {
   return (
     <Link
       href={`/marcas/${brand.slug}`}
-      className="brand-card group relative bg-white flex flex-col transition-[transform,border-color] duration-300 hover:-translate-y-0.5"
-      style={{ borderBottom: "2px solid transparent" }}
+      className="brand-card group relative block aspect-[4/5] overflow-hidden bg-[#1A1A1A] transition-transform duration-300 hover:-translate-y-0.5"
     >
-      {/* Image */}
-      <div className="relative aspect-square bg-[#F8F5EF] overflow-hidden flex items-center justify-center">
-        {brand.heroImage ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={brand.heroImage}
-            alt={brand.brand}
-            className="max-h-full max-w-full object-contain p-6 transition-transform duration-500 group-hover:scale-[1.04]"
-            loading="lazy"
-          />
-        ) : (
-          <span className="font-serif text-7xl text-[#C9A96E]">{initial}</span>
-        )}
-
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-3">
-          <span className="text-[9px] uppercase tracking-[0.25em] text-white">
-            Ver fragancias →
-          </span>
+      {/* Editorial background image (fullbleed cover with Ken Burns on hover) */}
+      {brand.heroImage ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={brand.heroImage}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+          loading="lazy"
+        />
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center bg-[#1A1A1A]">
+          <span className="font-serif text-[110px] text-[#C9A96E]/40">{initial}</span>
         </div>
-      </div>
+      )}
 
-      {/* Content */}
-      <div className="p-4 flex flex-col gap-1">
-        <div className="flex items-baseline justify-between gap-2">
-          <h3 className="font-serif text-base font-semibold text-[#0D0D0D] truncate group-hover:text-[#C9A96E] transition-colors">
+      {/* Dark gradient overlay from bottom (always on, lighter on hover) */}
+      <div
+        className="absolute inset-0 pointer-events-none transition-opacity duration-400"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.55) 45%, rgba(13,13,13,0.15) 75%, transparent 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(13,13,13,0.75) 0%, rgba(201,169,110,0.05) 60%, transparent 100%)",
+        }}
+      />
+
+      {/* Category badge top-right */}
+      <span
+        className={`absolute top-3 right-3 text-[8px] uppercase tracking-[0.2em] px-2 py-1 backdrop-blur-sm ${
+          brand.category === "arabe"
+            ? "bg-[#251508]/80 text-[#C9A96E]"
+            : brand.category === "nicho"
+              ? "bg-[#0D0D0D]/80 text-white border border-[#C9A96E]/40"
+              : "bg-white/80 text-[#0D0D0D]"
+        }`}
+      >
+        {BRAND_CATEGORY_LABELS[brand.category]}
+      </span>
+
+      {/* Content anchored bottom */}
+      <div className="absolute inset-x-0 bottom-0 p-5 z-10">
+        <div className="flex items-baseline justify-between gap-2 mb-1">
+          <h3 className="font-serif text-xl text-white truncate group-hover:text-[#C9A96E] transition-colors">
             {brand.brand}
           </h3>
-          <span className="text-[9px] uppercase tracking-[0.15em] text-[#C9A96E] shrink-0">
+          <span className="text-[10px] uppercase tracking-[0.15em] text-[#C9A96E] shrink-0">
             {brand.count}
           </span>
         </div>
-        <p className="text-[10px] uppercase tracking-[0.15em] text-[#6B6B6B]">
+        <p className="text-[10px] uppercase tracking-[0.15em] text-white/60 mb-1">
           {brand.count} {brand.count === 1 ? "fragancia" : "fragancias"}
         </p>
-        <p className="text-[11px] text-[#6B6B6B]">
+        <p className="text-[11px] text-white/50 mb-3">
           Desde {fmt(brand.minPrice)}
         </p>
-        <span
-          className={`mt-1 self-start text-[8px] uppercase tracking-[0.2em] px-2 py-0.5 ${
-            brand.category === "arabe"
-              ? "bg-[#251508] text-[#C9A96E]"
-              : brand.category === "nicho"
-                ? "bg-[#0D0D0D] text-white"
-                : "bg-[#F5F0E8] text-[#6B6B6B]"
-          }`}
-        >
-          {BRAND_CATEGORY_LABELS[brand.category]}
+        <span className="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.25em] text-[#C9A96E] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          Ver colección
+          <span className="arrow-nudge">→</span>
         </span>
       </div>
-
-      {/* Gold underline on hover */}
-      <span className="absolute inset-x-0 bottom-0 h-0.5 bg-[#C9A96E] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
     </Link>
   );
 }

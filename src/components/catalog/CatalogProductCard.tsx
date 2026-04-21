@@ -4,7 +4,7 @@ import Link from "next/link";
 import { WishlistButton } from "@/components/ui/WishlistButton";
 import { AddToCartButton } from "@/components/ui/AddToCartButton";
 import { QuickViewButton } from "@/components/ui/QuickViewButton";
-import { getProductFirstImageUrl, type ProductWithImages } from "@/lib/product-images";
+import { getProductCardImages, type ProductWithImages } from "@/lib/product-images";
 import { getFamilyBackgroundLight } from "@/lib/scent-notes";
 
 const fmt = (n: number) =>
@@ -24,7 +24,7 @@ interface CatalogProductCardProps {
  * Image uses object-contain on a soft cream background for unified perfume-bottle presentation.
  */
 export function CatalogProductCard({ product }: CatalogProductCardProps) {
-  const imageUrl = getProductFirstImageUrl(product);
+  const { primary: imageUrl, hover: hoverUrl } = getProductCardImages(product);
 
   const wishlistItem = {
     productId: product.id,
@@ -66,14 +66,30 @@ export function CatalogProductCard({ product }: CatalogProductCardProps) {
         className="relative aspect-[3/4] overflow-hidden transition-colors duration-500"
         style={{ backgroundColor: familyBg }}
       >
-        <Link href={`/p/${product.slug}`} className="block h-full">
+        <Link href={`/p/${product.slug}`} className="block h-full relative">
           {imageUrl ? (
-            <img
-              src={imageUrl}
-              alt={product.name}
-              className="pcard-img h-full w-full object-contain p-6"
-              loading="lazy"
-            />
+            <>
+              {/* Primary image */}
+              <img
+                src={imageUrl}
+                alt={product.name}
+                className={`pcard-img absolute inset-0 h-full w-full object-contain p-6 transition-opacity duration-400 ${
+                  hoverUrl ? "group-hover:opacity-0" : ""
+                }`}
+                loading="lazy"
+              />
+              {/* Hover image (cross-fade) */}
+              {hoverUrl && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={hoverUrl}
+                  alt=""
+                  aria-hidden="true"
+                  className="pcard-img absolute inset-0 h-full w-full object-contain p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+                  loading="lazy"
+                />
+              )}
+            </>
           ) : (
             <div className="h-full w-full flex items-center justify-center text-[#6B6B6B] text-xs uppercase tracking-widest">
               {product.brand}
