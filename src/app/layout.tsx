@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CartToast } from "@/components/ui/CartToast";
+import { MiniCart } from "@/components/ui/MiniCart";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 
@@ -71,6 +72,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <CartToast />
+        <MiniCart />
         <CustomCursor />
       </body>
     </html>

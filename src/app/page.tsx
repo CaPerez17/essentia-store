@@ -171,10 +171,10 @@ export default async function HomePage() {
                     Explorar catálogo
                   </Link>
                   <Link
-                    href="/catalogo?oferta=true"
+                    href="/quiz"
                     className="btn-primary inline-block border border-white/50 text-white px-8 py-3.5 text-[10px] uppercase tracking-[0.2em] font-normal hover:border-white hover:bg-white/5"
                   >
-                    Ver ofertas
+                    Descubrir mi fragancia →
                   </Link>
                 </div>
               </FadeIn>

@@ -191,6 +191,12 @@ html.cursor-none * {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* ═══ Loading pulse (AI features) ═══ */
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
 /* ═══ Skeleton shimmer ═══ */
 @keyframes shimmer {
   0% { background-position: -200px 0; }

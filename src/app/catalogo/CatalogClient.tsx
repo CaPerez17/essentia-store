@@ -7,6 +7,7 @@ import { FilterDrawer } from "@/components/catalog/FilterDrawer";
 import { FilterChips } from "@/components/catalog/FilterChips";
 import { CatalogSkeleton } from "@/components/catalog/CatalogSkeleton";
 import { EmptyState } from "@/components/catalog/EmptyState";
+import { OlfatoMode } from "@/components/catalog/OlfatoMode";
 import {
   parseCatalogParams,
   catalogParamsToSearchParams,
@@ -73,6 +74,8 @@ export function CatalogClient({ filterOptions, totalProducts }: CatalogClientPro
   const [accumulatedItems, setAccumulatedItems] = useState<ProductWithImages[]>([]);
   const [loading, setLoading] = useState(true);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [olfatoMode, setOlfatoMode] = useState(false);
+  const [familyCounts, setFamilyCounts] = useState<Record<string, number>>({});
 
   // Inline search input — local state with debounce
   const [searchInput, setSearchInput] = useState<string>(params.q ?? "");
@@ -194,6 +197,25 @@ export function CatalogClient({ filterOptions, totalProducts }: CatalogClientPro
     updateParams({ ...params, view: v });
   };
 
+  // Fetch family counts on first Olfato activation
+  const enableOlfato = async () => {
+    setOlfatoMode(true);
+    if (Object.keys(familyCounts).length === 0) {
+      try {
+        const res = await fetch("/api/products/family-counts");
+        const json = await res.json();
+        if (json.counts) setFamilyCounts(json.counts);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  };
+
+  const handleOlfatoSelect = (familyKey: string) => {
+    setOlfatoMode(false);
+    updateParams({ ...params, familia: [familyKey], oferta: false, page: 1 });
+  };
+
   const allItems = accumulatedItems;
   const total = data?.total ?? totalProducts;
   const hasMore = data ? data.page < data.pageCount : false;
@@ -294,6 +316,34 @@ export function CatalogClient({ filterOptions, totalProducts }: CatalogClientPro
             )}
           </button>
 
+          {/* Olfato Mode toggle */}
+          <div className="flex border border-[#E5E5E5]">
+            <button
+              type="button"
+              onClick={() => setOlfatoMode(false)}
+              aria-label="Vista grid"
+              className={`px-3 py-2.5 text-[10px] uppercase tracking-[0.15em] transition-colors ${
+                !olfatoMode
+                  ? "bg-[#0D0D0D] text-white"
+                  : "bg-white text-[#6B6B6B] hover:text-[#0D0D0D]"
+              }`}
+            >
+              ☰ Grid
+            </button>
+            <button
+              type="button"
+              onClick={enableOlfato}
+              aria-label="Modo Olfato"
+              className={`px-3 py-2.5 text-[10px] uppercase tracking-[0.15em] transition-colors ${
+                olfatoMode
+                  ? "bg-[#0D0D0D] text-white"
+                  : "bg-white text-[#6B6B6B] hover:text-[#0D0D0D]"
+              }`}
+            >
+              👁 Olfato
+            </button>
+          </div>
+
           {/* Grid view toggle */}
           <div className="hidden lg:flex border border-[#E5E5E5]">
             <button
@@ -351,6 +401,20 @@ export function CatalogClient({ filterOptions, totalProducts }: CatalogClientPro
         )}
       </div>
 
+      {/* ═══════════════════════ OLFATO MODE ═══════════════════════ */}
+      {olfatoMode ? (
+        <>
+          <p className="text-[10px] uppercase tracking-[0.25em] text-[#6B6B6B] mb-6">
+            Elige una familia olfativa para explorar
+          </p>
+          <OlfatoMode
+            counts={familyCounts}
+            onSelectFamily={handleOlfatoSelect}
+          />
+        </>
+      ) : (
+      <>
+
       {/* ═══════════════════════ RESULT COUNT ═══════════════════════ */}
       <p className="text-[10px] uppercase tracking-[0.2em] text-[#6B6B6B] mb-6">
         {countLabel}
@@ -391,6 +455,8 @@ export function CatalogClient({ filterOptions, totalProducts }: CatalogClientPro
             </p>
           )}
         </>
+      )}
+      </>
       )}
 
       {/* ═══════════════════════ DRAWER ═══════════════════════ */}
