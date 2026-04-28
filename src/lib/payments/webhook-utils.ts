@@ -82,14 +82,25 @@ export async function handleWebhookApproved(
     });
   });
 
-  // Fire-and-forget emails (never fail webhook on email error)
+  // Fire all post-purchase notifications in parallel; never fail webhook.
   try {
-    const { sendOrderConfirmation, sendNewOrderNotification } = await import("@/lib/emails");
-    await sendOrderConfirmation(order.id);
-    await sendNewOrderNotification(order.id);
-    console.log("[webhook] Emails enviados para orden", orderCode);
-  } catch (emailError) {
-    console.error("[webhook] Error enviando emails:", emailError);
+    const [{ sendOrderConfirmation, sendNewOrderNotification }, { sendWhatsAppOrderNotification }] =
+      await Promise.all([import("@/lib/emails"), import("@/lib/whatsapp")]);
+
+    const [buyerEmail, teamEmail, whatsapp] = await Promise.allSettled([
+      sendOrderConfirmation(order.id),
+      sendNewOrderNotification(order.id),
+      sendWhatsAppOrderNotification(order.id),
+    ]);
+
+    console.log(
+      `[webhook] order=${orderCode} buyerEmail=${buyerEmail.status} teamEmail=${teamEmail.status} whatsapp=${whatsapp.status}`,
+    );
+    if (buyerEmail.status === "rejected") console.error("[webhook] buyerEmail err:", buyerEmail.reason);
+    if (teamEmail.status === "rejected") console.error("[webhook] teamEmail err:", teamEmail.reason);
+    if (whatsapp.status === "rejected") console.error("[webhook] whatsapp err:", whatsapp.reason);
+  } catch (notifyError) {
+    console.error("[webhook] notification module load failed:", notifyError);
   }
 
   console.log("[webhook] Payment APPROVED for order:", orderCode);

@@ -42,27 +42,31 @@ export async function POST(request: Request) {
       }
     }
 
-    if (wompiParsed.status === "APPROVED") {
-      const result = await handleWebhookApproved(
-        wompiParsed.orderCode,
-        wompiParsed.providerTxnId,
-        "wompi",
-        body
-      );
-      if (!result.ok) {
-        return NextResponse.json({ error: result.error }, { status: 400 });
+    try {
+      if (wompiParsed.status === "APPROVED") {
+        const result = await handleWebhookApproved(
+          wompiParsed.orderCode,
+          wompiParsed.providerTxnId,
+          "wompi",
+          body
+        );
+        if (!result.ok) {
+          // Don't return 4xx — that triggers Wompi retries. Just log and ack.
+          console.log("[webhook/wompi] approved-handler skipped:", result.error);
+        }
+      } else {
+        const result = await handleWebhookDeclined(
+          wompiParsed.orderCode,
+          wompiParsed.providerTxnId,
+          "wompi",
+          body
+        );
+        if (!result.ok) {
+          console.log("[webhook/wompi] declined-handler skipped:", result.error);
+        }
       }
-      return NextResponse.json({ received: true });
-    }
-
-    const result = await handleWebhookDeclined(
-      wompiParsed.orderCode,
-      wompiParsed.providerTxnId,
-      "wompi",
-      body
-    );
-    if (!result.ok) {
-      return NextResponse.json({ error: result.error }, { status: 400 });
+    } catch (err) {
+      console.error("[webhook/wompi] handler threw:", err);
     }
     return NextResponse.json({ received: true });
   }

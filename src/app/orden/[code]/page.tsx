@@ -14,7 +14,13 @@ export default async function OrderPage({
 
   const order = await prisma.order.findUnique({
     where: { code: code.trim().toUpperCase() },
-    include: { items: { include: { product: true } } },
+    include: {
+      items: {
+        include: {
+          product: { include: { images: { orderBy: { position: "asc" }, take: 1 } } },
+        },
+      },
+    },
   });
 
   if (!order) {
