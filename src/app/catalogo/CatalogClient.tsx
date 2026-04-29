@@ -15,6 +15,9 @@ import {
   DEFAULT_PARAMS,
   type CatalogParams,
 } from "@/lib/catalog-params";
+import { track } from "@/lib/analytics";
+import { meta } from "@/lib/meta-pixel";
+import { tiktok } from "@/lib/tiktok-pixel";
 import type { Product, ProductImage } from "@prisma/client";
 
 type ProductWithImages = Product & { images?: ProductImage[] };
@@ -128,6 +131,12 @@ export function CatalogClient({ filterOptions, totalProducts }: CatalogClientPro
     if (debounceRef.current) clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(() => {
       const trimmed = value.trim();
+      // Analytics: emit a search event when the user actually committed a query
+      if (trimmed) {
+        track.searchQuery(trimmed);
+        meta.search(trimmed);
+        tiktok.search(trimmed);
+      }
       updateParams({ ...params, q: trimmed || null, page: 1 });
     }, 300);
   };

@@ -9,8 +9,15 @@ import { QuickViewDrawer } from "@/components/ui/QuickViewDrawer";
 import { WelcomePopup } from "@/components/ui/WelcomePopup";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { CustomCursor } from "@/components/ui/CustomCursor";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
+import { TikTokPixel } from "@/components/analytics/TikTokPixel";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.essentiaperfumes.co";
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const META_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+const TIKTOK_ID = process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID;
+const ANALYTICS_ENABLED = process.env.NODE_ENV === "production";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -80,6 +87,13 @@ export default function RootLayout({
         <QuickViewDrawer />
         <WelcomePopup />
         <CustomCursor />
+        {ANALYTICS_ENABLED && (
+          <>
+            <GoogleAnalytics measurementId={GA_ID} />
+            <MetaPixel pixelId={META_ID} />
+            <TikTokPixel pixelId={TIKTOK_ID} />
+          </>
+        )}
       </body>
     </html>
   );

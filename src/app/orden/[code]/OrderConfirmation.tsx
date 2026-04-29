@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { OrderPaymentActions } from "./OrderPaymentActions";
+import { TrackPurchase } from "./TrackPurchase";
 import { resolveImageUrl } from "@/lib/image-url";
 import type { Order, OrderItem, Product, ProductImage } from "@prisma/client";
 
@@ -33,8 +34,24 @@ export function OrderConfirmation({ order }: { order: OrderWithItems }) {
     year: "numeric",
   });
 
+  // Analytics payload — only emit purchase events when the order is paid.
+  const trackItems = order.items.map((it) => ({
+    slug: it.product.slug,
+    name: it.product.name,
+    brand: it.product.brand,
+    price: it.price,
+    quantity: it.quantity,
+  }));
+
   return (
     <div className="bg-[#F5F0E8] min-h-screen">
+      {isPaid && (
+        <TrackPurchase
+          orderId={order.code}
+          total={order.total}
+          items={trackItems}
+        />
+      )}
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
 
         {/* SUCCESS HERO (only when paid) */}
