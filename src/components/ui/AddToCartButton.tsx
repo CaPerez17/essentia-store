@@ -5,6 +5,9 @@ import { useCartStore, type CartItem } from "@/stores/cart-store";
 import { useToastStore } from "@/stores/toast-store";
 import { useMiniCartStore } from "@/stores/mini-cart-store";
 import { getProductFirstImageUrl, type ProductWithImages } from "@/lib/product-images";
+import { track } from "@/lib/analytics";
+import { meta } from "@/lib/meta-pixel";
+import { tiktok } from "@/lib/tiktok-pixel";
 
 interface AddToCartButtonProps {
   product: ProductWithImages;
@@ -40,6 +43,19 @@ export function AddToCartButton({
       image: imageUrl ?? undefined,
     };
     addItem({ ...item, quantity });
+
+    // Analytics: GA4 + Meta Pixel + TikTok Pixel (no-ops if pixels not loaded)
+    const trackPayload = {
+      slug: product.slug,
+      name: product.name,
+      brand: product.brand,
+      price: product.price,
+      quantity,
+    };
+    track.addToCart(trackPayload);
+    meta.addToCart(trackPayload);
+    tiktok.addToCart(trackPayload);
+
     setAdded(true);
     showToast({
       productName: product.name,

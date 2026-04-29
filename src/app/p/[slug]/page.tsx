@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
@@ -5,12 +6,68 @@ import { ProductGallery } from "./ProductGallery";
 import { ProductActions } from "./ProductActions";
 import { SimilarProducts } from "./SimilarProducts";
 import { ScentPyramid } from "./ScentPyramid";
+import { TrackProductView } from "./TrackProductView";
 import { StickyAddToCart } from "@/components/product/StickyAddToCart";
 import {
   getScentNotes,
   generateDescription,
   getFamilyBackgroundLight,
 } from "@/lib/scent-notes";
+
+const fmtPrice = (n: number) =>
+  new Intl.NumberFormat("es-CO", {
+    style: "currency",
+    currency: "COP",
+    maximumFractionDigits: 0,
+  }).format(n);
+
+/**
+ * Per-product SEO metadata — title, description, keywords, OG (which Next will
+ * resolve via sibling opengraph-image.tsx automatically).
+ */
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> },
+): Promise<Metadata> {
+  const { slug } = await params;
+  const product = await prisma.product.findUnique({
+    where: { slug },
+    select: { name: true, brand: true, price: true, description: true },
+  });
+  if (!product) {
+    return { title: "Producto no encontrado" };
+  }
+  const title = `${product.name} — ${product.brand}`;
+  const description =
+    product.description ||
+    `Compra ${product.name} de ${product.brand} en Colombia. Envío a todo el país. Precio: ${fmtPrice(product.price)} COP.`;
+  return {
+    title,
+    description,
+    keywords: [
+      product.name,
+      product.brand,
+      `${product.brand} Colombia`,
+      "perfume colombia",
+      "fragancia original",
+      "perfume original",
+    ],
+    alternates: {
+      canonical: `/p/${slug}`,
+    },
+    openGraph: {
+      type: "website",
+      title,
+      description,
+      url: `/p/${slug}`,
+      siteName: "Essentia",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
 
 export default async function ProductPage({
   params,
@@ -50,8 +107,41 @@ export default async function ProductPage({
   // Extract volume from tags
   const volume = tags.find((t) => /^\d+ml$/i.test(t) || t.toLowerCase() === "set") || null;
 
+  // Build product JSON-LD (Schema.org) for richer Google search results
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://www.essentiaperfumes.co";
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description,
+    brand: { "@type": "Brand", name: product.brand },
+    image: images.length > 0 ? images : undefined,
+    sku: product.slug,
+    offers: {
+      "@type": "Offer",
+      price: product.price,
+      priceCurrency: "COP",
+      availability:
+        product.stock > 0
+          ? "https://schema.org/InStock"
+          : "https://schema.org/OutOfStock",
+      url: `${baseUrl}/p/${product.slug}`,
+    },
+  };
+
   return (
     <div className="bg-[var(--dark)] min-h-screen">
+      {/* Analytics: GA4 + Meta + TikTok view_item / ViewContent */}
+      <TrackProductView
+        slug={product.slug}
+        name={product.name}
+        brand={product.brand}
+        price={product.price}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <div className="mx-auto max-w-7xl px-4 pt-8 pb-20 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="mb-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.15em] text-[var(--muted)]">

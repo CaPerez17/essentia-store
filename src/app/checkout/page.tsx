@@ -1,10 +1,12 @@
 import { CheckoutForm } from "./CheckoutForm";
 import { CheckoutSteps } from "./CheckoutSteps";
 import { CheckoutSummary } from "./CheckoutSummary";
+import { TrackBeginCheckout } from "./TrackBeginCheckout";
 
 export default function CheckoutPage() {
   return (
     <div className="bg-[var(--dark)] min-h-screen">
+      <TrackBeginCheckout />
       <div className="mx-auto max-w-6xl px-4 pt-12 pb-20 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-10">
